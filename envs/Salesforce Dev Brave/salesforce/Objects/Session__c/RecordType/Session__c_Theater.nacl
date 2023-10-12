@@ -1,0 +1,24 @@
+salesforce.RecordType Session__c_Theater {
+  fullName = "Session__c.Theater"
+  active = true
+  label = "Theater"
+  picklistValues = [
+    {
+      picklist = salesforce.Session__c.field.Target_Audience__c
+      values = [
+        {
+          fullName = "Admin"
+          default = false
+        },
+        {
+          fullName = "Dev"
+          default = false
+        },
+      ]
+    },
+  ]
+  _parent = [
+    salesforce.Session__c,
+  ]
+  _alias = "Theater"
+}

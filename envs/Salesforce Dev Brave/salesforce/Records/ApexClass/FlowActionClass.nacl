@@ -1,0 +1,7 @@
+salesforce.ApexClass FlowActionClass {
+  apiVersion = 53
+  status = "Active"
+  fullName = "FlowActionClass"
+  content = file("salesforce/Records/ApexClass/FlowActionClass.cls")
+  _alias = "FlowActionClass"
+}

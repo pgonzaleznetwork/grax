@@ -1,0 +1,50 @@
+salesforce.LightningPage Friend_Ships {
+  flexiPageRegions = [
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentName = "boatSearch"
+            identifier = "boatSearch"
+          }
+        },
+      ]
+      name = "region1"
+      type = "Region"
+    },
+    {
+      name = "region2"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentName = "boatMap"
+            identifier = "boatMap"
+          }
+        },
+      ]
+      name = "region3"
+      type = "Region"
+    },
+  ]
+  masterLabel = "Friend Ships"
+  template = {
+    name = "flexipage:appHomeTemplateTwoColumnsStacked"
+  }
+  type = "AppPage"
+  fullName = "Friend_Ships"
+  _generated_dependencies = [
+    {
+      reference = salesforce.LightningComponentBundle.instance.boatDetailTabs
+    },
+    {
+      reference = salesforce.LightningComponentBundle.instance.boatMap
+    },
+    {
+      reference = salesforce.LightningComponentBundle.instance.boatSearch
+    },
+  ]
+  _alias = "Friend_Ships"
+}

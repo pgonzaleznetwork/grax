@@ -1,0 +1,23 @@
+salesforce.SharingSet Share_cases_with_users {
+  fullName = "Share_cases_with_users"
+  accessMappings = [
+    {
+      accessLevel = "Read"
+      object = "Account"
+      objectField = "Id"
+      userField = "Manager.Account"
+    },
+    {
+      accessLevel = "Read"
+      object = "Case"
+      objectField = "Original_Deal__c.Account"
+      userField = "Contact.OtherAccountId__c"
+    },
+  ]
+  name = "Share cases with users"
+  profiles = [
+    "customer community user",
+    "partner community login user",
+  ]
+  _alias = "Share_cases_with_users"
+}

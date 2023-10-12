@@ -1,0 +1,92 @@
+salesforce.LightningPage Session_Page {
+  flexiPageRegions = [
+    {
+      name = "header"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentName = "force:detailPanel"
+            identifier = "force_detailPanel"
+          }
+        },
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "relatedListComponentOverride"
+                value = "NONE"
+              },
+              {
+                name = "rowsToDisplay"
+                value = "10"
+              },
+              {
+                name = "showActionBar"
+                value = "true"
+              },
+            ]
+            componentName = "force:relatedListContainer"
+            identifier = "force_relatedListContainer"
+          }
+        },
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "parentFieldApiName"
+                value = "Session__c.Id"
+              },
+              {
+                name = "relatedListApiName"
+                value = "AttachedContentDocuments"
+              },
+              {
+                name = "relatedListComponentOverride"
+                value = "ADVGRID"
+              },
+              {
+                name = "rowsToDisplay"
+                value = "10"
+              },
+              {
+                name = "showActionBar"
+                value = "true"
+              },
+            ]
+            componentName = "force:relatedListSingleContainer"
+            identifier = "force_relatedListSingleContainer"
+            visibilityRule = {
+              criteria = [
+                {
+                  leftValue = "{!Record.Target_Audience__c}"
+                  operator = "EQUAL"
+                  rightValue = "Admin"
+                },
+              ]
+            }
+          }
+        },
+      ]
+      name = "main"
+      type = "Region"
+    },
+  ]
+  masterLabel = "Session Page"
+  sobjectType = "Session__c"
+  template = {
+    name = "flexipage:recordHomeSimpleViewTemplate"
+    properties = {
+      name = "enablePageActionConfig"
+      value = "false"
+    }
+  }
+  type = "RecordPage"
+  fullName = "Session_Page"
+  _parent = [
+    salesforce.Session__c,
+  ]
+  _alias = "Session_Page"
+}

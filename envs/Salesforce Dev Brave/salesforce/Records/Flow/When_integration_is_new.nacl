@@ -1,0 +1,57 @@
+salesforce.Flow When_integration_is_new {
+  fullName = "When_integration_is_new"
+  apiVersion = 55
+  description = '''
+Migrated from the: When integration is new workflow rule
+Workflow rule description: "
+'''
+  formulas = [
+    {
+      name = "Update_account_name_with_integrationFormula"
+      dataType = "String"
+      expression = "$Record.Name + \" \" +TEXT($Record.Integration_Status__c)"
+    },
+  ]
+  label = "When integration is new"
+  migratedFromWorkflowRuleName = "When integration is new"
+  processMetadataValues = [
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  recordUpdates = [
+    {
+      name = "mainUpdate"
+      label = "mainUpdate"
+      locationX = 0
+      locationY = 0
+      inputAssignments = [
+        {
+          field = "Name"
+          value = {
+            elementReference = "Update_account_name_with_integrationFormula"
+          }
+        },
+      ]
+      inputReference = "$Record"
+    },
+  ]
+  start = {
+    locationX = 0
+    locationY = 0
+    connector = {
+      targetReference = "mainUpdate"
+    }
+    doesRequireRecordChangedToMeetCriteria = true
+    filterFormula = "ISPICKVAL({!$Record.Integration_Status__c},\"New\")"
+    object = salesforce.Account
+    recordTriggerType = "CreateAndUpdate"
+    triggerType = "RecordAfterSave"
+  }
+  status = "Draft"
+  _alias = "When integration is new"
+}

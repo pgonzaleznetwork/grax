@@ -1,0 +1,19 @@
+salesforce.WorkflowFieldUpdate Account_Update_account_name_with_integration@vuuuu {
+  fullName = "Account.Update_account_name_with_integration"
+  field = salesforce.Account.field.Name
+  formula = "Name + \" \" +TEXT(Integration_Status__c)"
+  name = "Update account name with integration"
+  notifyAssignee = false
+  operation = "Formula"
+  protected = false
+  reevaluateOnChange = false
+  _parent = [
+    salesforce.Account,
+  ]
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.Integration_Status__c
+    },
+  ]
+  _alias = "Account.Update_account_name_with_integration"
+}

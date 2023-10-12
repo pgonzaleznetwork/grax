@@ -1,0 +1,7 @@
+salesforce.ApexClass BusinessLogicClass {
+  apiVersion = 55
+  status = "Active"
+  fullName = "BusinessLogicClass"
+  content = file("salesforce/Records/ApexClass/BusinessLogicClass.cls")
+  _alias = "BusinessLogicClass"
+}

@@ -1,0 +1,14 @@
+salesforce.WorkflowAlert Case_Send_Support_Email@vuu {
+  fullName = "Case.Send_Support_Email"
+  ccEmails = [
+    "sla-emails@company.com",
+  ]
+  description = "Send Support Email"
+  protected = false
+  senderType = "CurrentUser"
+  template = salesforce.EmailTemplate.instance.unfiled_public_SUPPORTSelfServiceNewCommentNotificationSAMPLE@zcd
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case.Send_Support_Email"
+}

@@ -1,0 +1,5 @@
+salesforce.Skill Spanish {
+  fullName = "Spanish"
+  label = "Spanish"
+  _alias = "Spanish"
+}

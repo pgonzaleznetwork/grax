@@ -1,0 +1,7 @@
+salesforce.ApexClass AdminAccessClass {
+  apiVersion = 57
+  status = "Active"
+  fullName = "AdminAccessClass"
+  content = file("salesforce/Records/ApexClass/AdminAccessClass.cls")
+  _alias = "AdminAccessClass"
+}

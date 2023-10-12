@@ -1,0 +1,100 @@
+salesforce.CustomApplication standard__LightningService {
+  formFactors = [
+    "Small",
+    "Large",
+  ]
+  isNavAutoTempTabsDisabled = false
+  isNavPersonalizationDisabled = false
+  isNavTabPersistenceDisabled = false
+  label = "Service Console"
+  navType = "Console"
+  profileActionOverrides = [
+    {
+      actionName = "View"
+      content = "Incident_Record_Page"
+      formFactor = "Small"
+      pageOrSobjectType = "Zendesk_Ticket__c"
+      recordType = salesforce.RecordType.instance.Zendesk_Ticket__c_Incident
+      type = "Flexipage"
+      profile = "Admin"
+    },
+    {
+      actionName = "View"
+      content = "Incident_Record_Page"
+      formFactor = "Large"
+      pageOrSobjectType = "Zendesk_Ticket__c"
+      recordType = salesforce.RecordType.instance.Zendesk_Ticket__c_Incident
+      type = "Flexipage"
+      profile = "Admin"
+    },
+    {
+      actionName = "View"
+      content = "Incident_Record_Page"
+      formFactor = "Small"
+      pageOrSobjectType = "Zendesk_Ticket__c"
+      recordType = salesforce.RecordType.instance.Zendesk_Ticket__c_Incident
+      type = "Flexipage"
+      profile = "Standard"
+    },
+    {
+      actionName = "View"
+      content = "Incident_Record_Page"
+      formFactor = "Large"
+      pageOrSobjectType = "Zendesk_Ticket__c"
+      recordType = salesforce.RecordType.instance.Zendesk_Ticket__c_Incident
+      type = "Flexipage"
+      profile = "Standard"
+    },
+  ]
+  setupExperience = "service"
+  tabs = [
+    "standard-Case",
+    "standard-Contact",
+    "standard-Account",
+    "standard-report",
+    "standard-Dashboard",
+    "standard-home",
+    salesforce.CustomTab.instance.Center__c,
+    salesforce.CustomTab.instance.Parent__c,
+    salesforce.CustomTab.instance.Child__c,
+    salesforce.CustomTab.instance.Knowledge__kav,
+  ]
+  uiType = "Lightning"
+  utilityBar = "LightningService_UtilityBar"
+  workspaceConfig = {
+    mappings = [
+      {
+        tab = salesforce.CustomTab.instance.Center__c
+      },
+      {
+        tab = salesforce.CustomTab.instance.Child__c
+      },
+      {
+        tab = salesforce.CustomTab.instance.Knowledge__kav
+      },
+      {
+        tab = salesforce.CustomTab.instance.Parent__c
+      },
+      {
+        tab = "standard-Account"
+      },
+      {
+        tab = "standard-Case"
+      },
+      {
+        tab = "standard-Contact"
+      },
+      {
+        tab = "standard-Dashboard"
+      },
+      {
+        tab = "standard-home"
+      },
+      {
+        tab = "standard-report"
+      },
+    ]
+  }
+  fullName = "standard__LightningService"
+  _alias = "Service Console (standard)"
+}

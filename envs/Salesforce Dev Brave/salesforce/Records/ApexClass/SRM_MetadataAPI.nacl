@@ -1,0 +1,7 @@
+salesforce.ApexClass SRM_MetadataAPI {
+  apiVersion = 44
+  status = "Active"
+  fullName = "SRM_MetadataAPI"
+  content = file("salesforce/Records/ApexClass/SRM_MetadataAPI.cls")
+  _alias = "SRM_MetadataAPI"
+}

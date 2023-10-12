@@ -1,0 +1,131 @@
+salesforce.Flow Account_Formulas {
+  fullName = "Account_Formulas"
+  apiVersion = 54
+  decisions = [
+    {
+      processMetadataValues = {
+        name = "index"
+        value = {
+          numberValue = 0
+        }
+      }
+      name = "myDecision"
+      label = "myDecision"
+      locationX = 50
+      locationY = 0
+      defaultConnectorLabel = "default"
+      rules = [
+        {
+          name = "myRule_1"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "formula_myRule_1"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          label = "complex formula"
+        },
+      ]
+    },
+  ]
+  formulas = [
+    {
+      processMetadataValues = {
+        name = "originalFormula"
+        value = {
+          stringValue = '''
+IF([Account].Owner.Manager.Contact.Account.AccountNumber  = "text" ,TRUE,FALSE)
+
+||
+
+
+IF([Account].original_lead__r.ConvertedAccountId != "",TRUE,FALSE)
+
+
+||
+
+
+IF($CustomMetadata.Trigger_Context_Status__mdt.by_class.Enable_After_Delete__c , TRUE,FALse)
+
+
+'''
+        }
+      }
+      name = "formula_myRule_1"
+      dataType = "Boolean"
+      expression = '''
+IF({!myVariable_current.Owner.Manager.Contact.Account.AccountNumber}  = "text" ,TRUE,FALSE)
+
+||
+
+
+IF({!myVariable_current.original_lead__r.ConvertedAccountId} != "",TRUE,FALSE)
+
+
+||
+
+
+IF({!$CustomMetadata.Trigger_Context_Status__mdt.by_class.Enable_After_Delete__c} , TRUE,FALse)
+'''
+    },
+  ]
+  interviewLabel = "Account_Formulas-1_InterviewLabel"
+  label = "Account Formulas"
+  processMetadataValues = [
+    {
+      name = "ObjectType"
+      value = {
+        stringValue = "Account"
+      }
+    },
+    {
+      name = "ObjectVariable"
+      value = {
+        elementReference = "myVariable_current"
+      }
+    },
+    {
+      name = "OldObjectVariable"
+      value = {
+        elementReference = "myVariable_old"
+      }
+    },
+    {
+      name = "TriggerType"
+      value = {
+        stringValue = "onCreateOnly"
+      }
+    },
+  ]
+  processType = "Workflow"
+  startElementReference = "myDecision"
+  status = "Draft"
+  variables = [
+    {
+      name = "myVariable_current"
+      dataType = "SObject"
+      isCollection = false
+      isInput = true
+      isOutput = true
+      objectType = salesforce.Account
+    },
+    {
+      name = "myVariable_old"
+      dataType = "SObject"
+      isCollection = false
+      isInput = true
+      isOutput = false
+      objectType = salesforce.Account
+    },
+  ]
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.original_lead__c
+    },
+  ]
+  _alias = "Account Formulas"
+}

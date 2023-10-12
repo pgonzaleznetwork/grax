@@ -1,0 +1,14 @@
+salesforce.Trigger_Context_Status__mdt Trigger_Context_Status_by_handler@uuvu {
+  label = "by handler"
+  protected = false
+  fullName = "Trigger_Context_Status.by_handler"
+  Enable_After_Delete__c = true
+  Enable_After_Insert__c = true
+  Enable_After_Undelete__c = true
+  Enable_After_Update__c = true
+  Enable_Before_Delete__c = true
+  Enable_Before_Insert__c = true
+  Enable_Before_Update__c = true
+  the_handler_to_call__c = "TriggerDMlsupport"
+  _alias = "by handler"
+}

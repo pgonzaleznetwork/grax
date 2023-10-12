@@ -1,0 +1,29 @@
+salesforce.EmailTemplate unfiled_public_vf_email_template@zcduu {
+  apiVersion = 51
+  available = true
+  encodingKey = "ISO-8859-1"
+  name = "vf email template"
+  packageVersions = [
+    {
+      majorNumber = 1
+      minorNumber = 7
+      namespace = "sf_com_apps"
+    },
+    {
+      majorNumber = 1
+      minorNumber = 0
+      namespace = "trlhdtips"
+    },
+  ]
+  style = "none"
+  type = "visualforce"
+  uiType = "Aloha"
+  fullName = "unfiled$public/vf_email_template"
+  content = file("salesforce/Records/EmailTemplate/unfiled$public/vf_email_template/vf_email_template.email")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Opportunity
+    },
+  ]
+  _alias = "unfiled$public/vf_email_template"
+}

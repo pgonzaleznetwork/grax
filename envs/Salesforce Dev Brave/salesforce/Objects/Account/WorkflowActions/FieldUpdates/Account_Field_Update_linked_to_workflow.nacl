@@ -1,0 +1,13 @@
+salesforce.WorkflowFieldUpdate Account_Field_Update_linked_to_workflow@vuuuu {
+  fullName = "Account.Field_Update_linked_to_workflow"
+  field = salesforce.Account.field.AccountNumber
+  name = "Field Update linked to workflow"
+  notifyAssignee = false
+  operation = "Null"
+  protected = false
+  reevaluateOnChange = false
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Field_Update_linked_to_workflow"
+}

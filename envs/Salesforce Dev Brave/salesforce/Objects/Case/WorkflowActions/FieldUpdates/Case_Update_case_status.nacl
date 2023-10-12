@@ -1,0 +1,14 @@
+salesforce.WorkflowFieldUpdate Case_Update_case_status@vuu {
+  fullName = "Case.Update_case_status"
+  field = salesforce.Case.field.Status
+  literalValue = "Working"
+  name = "Update case status"
+  notifyAssignee = false
+  operation = "Literal"
+  protected = false
+  reevaluateOnChange = false
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case.Update_case_status"
+}

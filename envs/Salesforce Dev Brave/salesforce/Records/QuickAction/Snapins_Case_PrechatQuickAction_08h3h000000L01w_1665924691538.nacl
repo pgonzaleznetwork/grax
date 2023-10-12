@@ -1,0 +1,40 @@
+salesforce.QuickAction Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538 {
+  fullName = "Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538"
+  description = "Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538"
+  fieldOverrides = [
+    {
+      field = "Origin"
+      literalValue = "Web"
+    },
+    {
+      field = "Status"
+      literalValue = "New"
+    },
+  ]
+  label = "Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538"
+  optionsCreateFeedItem = false
+  quickActionLayout = {
+    layoutSectionStyle = "TwoColumnsTopToBottom"
+    quickActionLayoutColumns = [
+      {
+        quickActionLayoutItems = [
+          {
+            emptySpace = false
+            field = "Subject"
+            uiBehavior = "Edit"
+          },
+          {
+            emptySpace = false
+            field = "SuppliedEmail"
+            uiBehavior = "Edit"
+          },
+        ]
+      },
+      {
+      },
+    ]
+  }
+  targetObject = salesforce.Case
+  type = "Create"
+  _alias = "Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538"
+}

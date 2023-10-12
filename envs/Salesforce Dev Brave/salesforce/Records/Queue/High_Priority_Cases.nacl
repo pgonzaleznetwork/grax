@@ -1,0 +1,24 @@
+salesforce.Queue High_Priority_Cases {
+  fullName = "High_Priority_Cases"
+  doesSendEmailToMembers = false
+  name = "High-Priority Cases"
+  queueMembers = {
+    publicGroups = {
+      publicGroup = [
+        salesforce.Group.instance.Zendesk_Managers,
+        salesforce.Group.instance.Zendesk_Users,
+      ]
+    }
+    roles = {
+      role = salesforce.Role.instance.ChannelSalesTeam
+    }
+    users = {
+      user = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+    }
+  }
+  queueRoutingConfig = salesforce.QueueRoutingConfig.instance.High_Priority_Cases
+  queueSobject = {
+    sobjectType = "Case"
+  }
+  _alias = "High_Priority_Cases"
+}

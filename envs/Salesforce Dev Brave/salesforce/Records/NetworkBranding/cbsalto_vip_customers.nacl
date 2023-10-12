@@ -1,0 +1,15 @@
+salesforce.NetworkBranding cbsalto_vip_customers {
+  network = "salto-vip-customers"
+  primaryColor = "#1797C0"
+  primaryComplementColor = "#FFFFFF"
+  quaternaryColor = "#B1BAC1"
+  quaternaryComplementColor = "#222222"
+  secondaryColor = "#51606E"
+  tertiaryColor = "#DDE4E9"
+  tertiaryComplementColor = "#222222"
+  zeronaryColor = "#51606E"
+  zeronaryComplementColor = "#FFFFFF"
+  fullName = "cbsalto_vip_customers"
+  content = file("salesforce/Records/NetworkBranding/cbsalto_vip_customers.networkBranding")
+  _alias = "cbsalto_vip_customers"
+}

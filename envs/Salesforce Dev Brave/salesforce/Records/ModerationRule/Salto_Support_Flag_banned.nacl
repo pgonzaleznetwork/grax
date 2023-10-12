@@ -1,0 +1,38 @@
+salesforce.ModerationRule Salto_Support_Flag_banned@svu {
+  fullName = "Salto Support.Flag_banned"
+  action = "Flag"
+  active = false
+  description = "Community moderators review posts and comments containing banned keywords"
+  entitiesAndFields = [
+    {
+      entityName = "FeedComment"
+      fieldName = "RawCommentBody"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "LinkUrl"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "RawBody"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "Title"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedPollChoice"
+      fieldName = "ChoiceBody"
+      keywordList = "Salto Support.Banned"
+    },
+  ]
+  masterLabel = "Flag posts or comments containing banned keywords"
+  type = "Content"
+  userCriteria = "Salto Support.Customer_Members"
+  userMessage = "You can't use %BLOCKED_KEYWORD% or other inappropriate words in this community. Review your content and try again."
+  _alias = "Salto Support.Flag_banned"
+}

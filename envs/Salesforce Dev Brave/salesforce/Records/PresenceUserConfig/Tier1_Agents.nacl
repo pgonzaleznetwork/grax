@@ -1,0 +1,13 @@
+salesforce.PresenceUserConfig Tier1_Agents {
+  fullName = "Tier1_Agents"
+  capacity = 20
+  enableAutoAccept = false
+  enableDecline = true
+  enableDeclineReason = false
+  enableDisconnectSound = true
+  enableRequestSound = true
+  label = "Tier1 Agents"
+  presenceStatusOnDecline = salesforce.ServicePresenceStatus.instance.Busy
+  presenceStatusOnPushTimeout = salesforce.ServicePresenceStatus.instance.Busy
+  _alias = "Tier1 Agents"
+}

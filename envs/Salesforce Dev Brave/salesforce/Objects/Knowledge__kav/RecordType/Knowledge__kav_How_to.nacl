@@ -1,0 +1,9 @@
+salesforce.RecordType Knowledge__kav_How_to {
+  fullName = "Knowledge__kav.How_to"
+  active = true
+  label = "How to"
+  _parent = [
+    salesforce.Knowledge__kav,
+  ]
+  _alias = "How to"
+}

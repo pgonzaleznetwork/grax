@@ -1,0 +1,5 @@
+salesforce.MilestoneType Case_Update@s {
+  fullName = "Case Update"
+  recurrenceType = "recursIndependently"
+  _alias = "Case Update"
+}

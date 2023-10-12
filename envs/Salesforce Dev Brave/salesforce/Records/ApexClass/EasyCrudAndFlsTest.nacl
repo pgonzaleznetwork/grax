@@ -1,0 +1,12 @@
+salesforce.ApexClass EasyCrudAndFlsTest {
+  apiVersion = 51
+  status = "Active"
+  fullName = "EasyCrudAndFlsTest"
+  content = file("salesforce/Records/ApexClass/EasyCrudAndFlsTest.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.EasyCrudAndFls
+    },
+  ]
+  _alias = "EasyCrudAndFlsTest"
+}

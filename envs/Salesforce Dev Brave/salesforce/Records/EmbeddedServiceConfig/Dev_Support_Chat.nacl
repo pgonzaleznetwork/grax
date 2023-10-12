@@ -1,0 +1,11 @@
+salesforce.EmbeddedServiceConfig Dev_Support_Chat {
+  areGuestUsersAllowed = false
+  deploymentFeature = "LiveAgent"
+  deploymentType = "Web"
+  isEnabled = true
+  masterLabel = "Dev Support (Chat)"
+  shouldHideAuthDialog = false
+  site = salesforce.CustomSite.instance.Default_Help_Center
+  fullName = "Dev_Support_Chat"
+  _alias = "Dev_Support_Chat"
+}

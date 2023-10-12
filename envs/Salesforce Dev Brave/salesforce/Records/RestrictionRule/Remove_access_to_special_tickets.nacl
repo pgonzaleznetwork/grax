@@ -1,0 +1,16 @@
+salesforce.RestrictionRule Remove_access_to_special_tickets {
+  fullName = "Remove_access_to_special_tickets"
+  active = true
+  enforcementType = "Restrict"
+  masterLabel = "Remove access to special tickets"
+  recordFilter = "ISPICKVAL(Integration_Status__c, 'Visible')=true"
+  targetEntity = "Zendesk_Ticket__c"
+  userCriteria = "$User.Email='pgonzaleznetwork@gmail.com'"
+  version = 1
+  _generated_dependencies = [
+    {
+      reference = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+    },
+  ]
+  _alias = "Remove_access_to_special_tickets"
+}

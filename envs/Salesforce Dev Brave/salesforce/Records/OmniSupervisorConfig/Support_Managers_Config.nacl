@@ -1,0 +1,30 @@
+salesforce.OmniSupervisorConfig Support_Managers_Config {
+  fullName = "Support_Managers_Config"
+  isTimelineHidden = false
+  masterLabel = "Support Managers Config"
+  omniSupervisorConfigAction = {
+    actionName = "CustomAction"
+    actionTab = "AllAgents"
+    customActionFlow = "Flow_using_apex_class"
+    displayOrder = 0
+  }
+  omniSupervisorConfigGroup = [
+    {
+      group = "Zendesk_Managers"
+    },
+    {
+      group = "Zendesk_Users"
+    },
+  ]
+  omniSupervisorConfigProfile = {
+    profile = "contractmanager"
+  }
+  omniSupervisorConfigQueue = {
+    queue = "High_Priority_Cases"
+  }
+  omniSupervisorConfigSkill = {
+    skill = "Spanish"
+  }
+  skillVisibility = "AnySkill"
+  _alias = "Support_Managers_Config"
+}

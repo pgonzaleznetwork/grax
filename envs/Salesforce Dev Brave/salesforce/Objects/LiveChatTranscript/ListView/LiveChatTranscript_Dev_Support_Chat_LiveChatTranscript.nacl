@@ -1,0 +1,13 @@
+salesforce.ListView LiveChatTranscript_Dev_Support_Chat_LiveChatTranscript {
+  fullName = "LiveChatTranscript.Dev_Support_Chat_LiveChatTranscript"
+  filterScope = "Queue"
+  label = "Dev Support (Chat)"
+  queue = salesforce.Queue.instance.Dev_Support_Chat
+  sharedTo = {
+    allInternalUsers = ""
+  }
+  _parent = [
+    salesforce.LiveChatTranscript,
+  ]
+  _alias = "Dev Support (Chat)"
+}

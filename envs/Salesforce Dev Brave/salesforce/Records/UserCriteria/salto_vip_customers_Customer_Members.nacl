@@ -1,0 +1,7 @@
+salesforce.UserCriteria salto_vip_customers_Customer_Members@bbvu {
+  fullName = "salto-vip-customers.Customer_Members"
+  description = "Member criteria matches customer members"
+  masterLabel = "Customer Members"
+  userTypes = "Customer"
+  _alias = "salto-vip-customers.Customer_Members"
+}

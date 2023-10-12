@@ -1,0 +1,7 @@
+salesforce.ApexClass QuickDeploy {
+  apiVersion = 56
+  status = "Active"
+  fullName = "QuickDeploy"
+  content = file("salesforce/Records/ApexClass/QuickDeploy.cls")
+  _alias = "QuickDeploy"
+}

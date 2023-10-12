@@ -1,0 +1,30 @@
+salesforce.CustomApplication Friend_Ships {
+  brand = {
+    headerColor = "#0070D2"
+    shouldOverrideOrgTheme = false
+  }
+  formFactors = [
+    "Small",
+    "Large",
+  ]
+  isNavAutoTempTabsDisabled = false
+  isNavPersonalizationDisabled = false
+  isNavTabPersistenceDisabled = false
+  label = "Friend Ships"
+  navType = "Standard"
+  tabs = [
+    salesforce.CustomTab.instance.Friend_Ships,
+    salesforce.CustomTab.instance.Center__c,
+    salesforce.CustomTab.instance.Parent__c,
+    salesforce.CustomTab.instance.Child__c,
+  ]
+  uiType = "Lightning"
+  utilityBar = "Friend_Ships_UtilityBar"
+  fullName = "Friend_Ships"
+  _generated_dependencies = [
+    {
+      reference = salesforce.LightningPage.instance.Friend_Ships_UtilityBar
+    },
+  ]
+  _alias = "Friend Ships"
+}

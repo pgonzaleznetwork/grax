@@ -1,0 +1,9 @@
+salesforce.CustomTab Center__c {
+  fullName = "Center__c"
+  customObject = true
+  motif = "Custom53: Bell"
+  _parent = [
+    salesforce.Center__c,
+  ]
+  _alias = "Center__c"
+}

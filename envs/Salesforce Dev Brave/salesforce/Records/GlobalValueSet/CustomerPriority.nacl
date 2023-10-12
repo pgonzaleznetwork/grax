@@ -1,0 +1,36 @@
+salesforce.GlobalValueSet CustomerPriority {
+  fullName = "CustomerPriority"
+  customValue = [
+    {
+      fullName = "Lowest"
+      default = true
+      label = "Lowest"
+    },
+    {
+      fullName = "Medium"
+      default = false
+      label = "Medium"
+    },
+    {
+      fullName = "New High"
+      default = false
+      label = "New High"
+    },
+    {
+      fullName = "Low"
+      default = false
+      isActive = false
+      label = "Low"
+    },
+    {
+      fullName = "Critical"
+      default = false
+      isActive = false
+      label = "Critical"
+    },
+  ]
+  description = "Global value set based on old field"
+  masterLabel = "Customer Priority"
+  sorted = false
+  _alias = "CustomerPriority"
+}

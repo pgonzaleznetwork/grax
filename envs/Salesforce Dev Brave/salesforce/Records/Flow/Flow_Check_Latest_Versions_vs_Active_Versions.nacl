@@ -1,0 +1,274 @@
+salesforce.Flow Flow_Check_Latest_Versions_vs_Active_Versions {
+  fullName = "Flow_Check_Latest_Versions_vs_Active_Versions"
+  apiVersion = 55
+  assignments = [
+    {
+      name = "Add_to_Collection"
+      label = "Add to Collection"
+      locationX = 704
+      locationY = 758
+      assignmentItems = [
+        {
+          assignToReference = "vFlowList"
+          operator = "Add"
+          value = {
+            elementReference = "fFlowEntry"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Flow_Definitions"
+      }
+    },
+    {
+      name = "Add_to_No_Active_Collection"
+      label = "Add to No Active Collection"
+      locationX = 440
+      locationY = 758
+      assignmentItems = [
+        {
+          assignToReference = "vFlowListNoActive"
+          operator = "Add"
+          value = {
+            elementReference = "fFlowEntryNoActive"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Flow_Definitions"
+      }
+    },
+  ]
+  decisions = [
+    {
+      name = "Is_Latest_Version_the_Active_Version"
+      label = "Is Latest Version the Active Version?"
+      locationX = 418
+      locationY = 398
+      defaultConnector = {
+        targetReference = "Get_Latest_Flow_Version"
+      }
+      defaultConnectorLabel = "Latest is NOT Active (Default)"
+      rules = [
+        {
+          name = "Latest_is_Active"
+          conditionLogic = "or"
+          conditions = [
+            {
+              leftValueReference = "Flow_Definitions.ActiveVersionId"
+              operator = "EqualTo"
+              rightValue = {
+                elementReference = "Flow_Definitions.LatestVersionId"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Flow_Definitions"
+          }
+          label = "Latest is Active"
+        },
+      ]
+    },
+    {
+      name = "Is_there_an_Active_Version"
+      label = "Is there an Active Version?"
+      locationX = 572
+      locationY = 638
+      defaultConnector = {
+        targetReference = "Add_to_Collection"
+      }
+      defaultConnectorLabel = "Latest is NOT Active (Default)"
+      rules = [
+        {
+          name = "No_Active_Version"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Flow_Definitions.ActiveVersionId"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Add_to_No_Active_Collection"
+          }
+          label = "No Active Version"
+        },
+      ]
+    },
+  ]
+  description = "Check flows and lists those with an Active Version that is not the Latest Version and lists those with no Active Version."
+  environments = "Default"
+  formulas = [
+    {
+      name = "fCRLF"
+      dataType = "String"
+      expression = "SUBSTITUTE({!ttCRLF}, \"~\", \"\")"
+    },
+    {
+      name = "fFlowEntry"
+      dataType = "String"
+      expression = "LPAD( TEXT( {!Flow_Definitions.VersionNumber}) , 5, CHR(0160) ) & LPAD( TEXT( {!Get_Latest_Flow_Version.VersionNumber} ), IF( {!Flow_Definitions.VersionNumber} > 99, 7, IF( {!Flow_Definitions.VersionNumber} > 9, 8, 9 ) ), CHR(0160)  ) & LPAD( CHR(0160), IF( {!Get_Latest_Flow_Version.VersionNumber} > 99, 4, IF( {!Get_Latest_Flow_Version.VersionNumber} > 9, 5, 6 ) ), CHR(0160) ) & {!Flow_Definitions.Label} & {!fCRLF}"
+    },
+    {
+      name = "fFlowEntryNoActive"
+      dataType = "String"
+      expression = "LPAD( \"--\" , 5, CHR(0160) ) & LPAD( TEXT( {!Get_Latest_Flow_Version.VersionNumber} ), 9, CHR(0160) ) & LPAD( CHR(0160), IF( {!Get_Latest_Flow_Version.VersionNumber} > 99, 4, IF( {!Get_Latest_Flow_Version.VersionNumber} > 9, 5, 6 ) ), CHR(0160) ) & {!Flow_Definitions.Label} & {!fCRLF}"
+    },
+  ]
+  interviewLabel = "Flow - Check Latest Versions vs Active Versions {!$Flow.CurrentDateTime}"
+  label = "Flow - Check Latest Versions vs Active Versions"
+  loops = [
+    {
+      name = "Flow_Definitions"
+      label = "Flow Definitions"
+      locationX = 176
+      locationY = 278
+      collectionReference = "Get_Flow_Definitions"
+      iterationOrder = "Asc"
+      nextValueConnector = {
+        targetReference = "Is_Latest_Version_the_Active_Version"
+      }
+      noMoreValuesConnector = {
+        targetReference = "Results"
+      }
+    },
+  ]
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "Flow"
+  recordLookups = [
+    {
+      name = "Get_Flow_Definitions"
+      label = "Get Flow Definitions"
+      locationX = 176
+      locationY = 158
+      assignNullValuesIfNoRecordsFound = false
+      connector = {
+        targetReference = "Flow_Definitions"
+      }
+      filterLogic = "or"
+      filters = [
+        {
+          field = "ProcessType"
+          operator = "EqualTo"
+          value = {
+            stringValue = "AutoLaunchedFlow"
+          }
+        },
+        {
+          field = "ProcessType"
+          operator = "EqualTo"
+          value = {
+            stringValue = "Flow"
+          }
+        },
+      ]
+      getFirstRecordOnly = false
+      object = "FlowDefinitionView"
+      sortField = "Label"
+      sortOrder = "Asc"
+      storeOutputAutomatically = true
+    },
+    {
+      name = "Get_Latest_Flow_Version"
+      label = "Get Latest Flow Version"
+      locationX = 572
+      locationY = 518
+      assignNullValuesIfNoRecordsFound = false
+      connector = {
+        targetReference = "Is_there_an_Active_Version"
+      }
+      filterLogic = "and"
+      filters = [
+        {
+          field = "FlowDefinitionViewId"
+          operator = "EqualTo"
+          value = {
+            elementReference = "Flow_Definitions.DurableId"
+          }
+        },
+      ]
+      getFirstRecordOnly = true
+      object = "FlowVersionView"
+      sortField = "VersionNumber"
+      sortOrder = "Desc"
+      storeOutputAutomatically = true
+    },
+  ]
+  screens = [
+    {
+      name = "Results"
+      label = "Results"
+      locationX = 176
+      locationY = 1166
+      allowBack = true
+      allowFinish = true
+      allowPause = false
+      fields = [
+        {
+          name = "Result_Lists"
+          fieldText = "<p><strong><span class=\"ql-cursor\">﻿</span>The Active Version of these Flows is not the Latest Version</strong></p><p><br></p><p>Active&nbsp;Latest&nbsp;Flow</p><p>{!vFlowList}</p><p><br></p><p><br></p><p><strong>These Flows have no Active Version</strong></p><p><br></p><p>Active&nbsp;Latest&nbsp;Flow</p><p>{!vFlowListNoActive}</p>"
+          fieldType = "DisplayText"
+        },
+      ]
+      showFooter = true
+      showHeader = false
+    },
+  ]
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "Get_Flow_Definitions"
+    }
+  }
+  status = "Draft"
+  textTemplates = [
+    {
+      name = "ttCRLF"
+      isViewedAsPlainText = true
+      text = '''
+~
+~
+'''
+    },
+  ]
+  variables = [
+    {
+      name = "vFlowList"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "vFlowListNoActive"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+  ]
+  _alias = "Flow - Check Latest Versions vs Active Versions"
+}

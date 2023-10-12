@@ -1,0 +1,19 @@
+type salesforce.Trigger_Context_Status__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "Trigger_Context_Status__mdt"
+  metadataType = "CustomMetadata"
+  label = "Trigger Context Status"
+  pluralLabel = "Trigger Context Status"
+  _alias = "Trigger Context Status"
+}

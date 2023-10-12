@@ -1,0 +1,150 @@
+salesforce.AssignmentRules Case {
+  assignmentRule = [
+    {
+      fullName = "Single Rule"
+      active = true
+      ruleEntry = [
+        {
+          assignedTo = salesforce.Queue.instance.High_Priority_Cases
+          assignedToType = "Queue"
+          criteriaItems = [
+            {
+              field = salesforce.Case.field.Origin
+              operation = "equals"
+              value = "Phone"
+            },
+          ]
+          team = "All experts"
+          template = salesforce.EmailTemplate.instance.unfiled_public_Account_Integration_Disconencted@zcduu
+        },
+      ]
+    },
+    {
+      fullName = "Standard"
+      active = false
+      ruleEntry = [
+        {
+          assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "equals"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = "Account.ShippingCountry"
+              operation = "equals"
+              value = "Gold,Platinum"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+            {
+              field = "Account.BillingState"
+              operation = "equals"
+              value = "Dublin"
+            },
+            {
+              field = salesforce.Contact.field.Email
+              operation = "notEqual"
+            },
+          ]
+        },
+        {
+          assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "equals"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Silver,Bronze"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = salesforce.Queue.instance.Service_Case
+          assignedToType = "Queue"
+          criteriaItems = [
+            {
+              field = salesforce.Case.field.GHO__c
+              operation = "equals"
+              value = "True"
+            },
+          ]
+          template = salesforce.EmailTemplate.instance.unfiled_public_Account_Integration_Disconencted@zcduu
+        },
+        {
+          assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "notEqual"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Gold,Platinum"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = "Account.BillingCountry"
+              operation = "notEqual"
+              value = "US,USA,United States,United States of America"
+            },
+            {
+              field = salesforce.Account.field.SLA__c
+              operation = "equals"
+              value = "Silver,Bronze"
+            },
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Customer"
+            },
+          ]
+        },
+        {
+          assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          assignedToType = "User"
+          criteriaItems = [
+            {
+              field = salesforce.Account.field.Type
+              operation = "contains"
+              value = "Partner"
+            },
+          ]
+        },
+      ]
+    },
+  ]
+  fullName = "Case"
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case"
+}

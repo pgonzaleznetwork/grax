@@ -1,0 +1,12 @@
+salesforce.ApexClass QuickDeployTests {
+  apiVersion = 56
+  status = "Active"
+  fullName = "QuickDeployTests"
+  content = file("salesforce/Records/ApexClass/QuickDeployTests.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.QuickDeploy
+    },
+  ]
+  _alias = "QuickDeployTests"
+}

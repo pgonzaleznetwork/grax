@@ -1,0 +1,21 @@
+salesforce.LiveChatButton Dev_Support_Chat {
+  fullName = "Dev_Support_Chat"
+  chatPage = salesforce.ApexPage.instance.AnswersHome
+  deployments = {
+  }
+  enableQueue = false
+  isActive = true
+  label = "Dev Support (Chat)"
+  onlineImage = salesforce.StaticResource.instance.CancelIcon
+  optionsCustomRoutingIsEnabled = false
+  optionsHasChasitorIdleTimeout = false
+  optionsHasInviteAfterAccept = false
+  optionsHasInviteAfterReject = false
+  optionsHasRerouteDeclinedRequest = false
+  optionsIsAutoAccept = false
+  optionsIsInviteAutoRemove = false
+  postChatPage = "CommunitiesTemplate"
+  site = salesforce.CustomSite.instance.Salto_Support
+  type = "Standard"
+  _alias = "Dev Support (Chat)"
+}

@@ -1,0 +1,6 @@
+salesforce.Group Zendesk_Users {
+  fullName = "Zendesk_Users"
+  doesIncludeBosses = true
+  name = "Zendesk Users"
+  _alias = "Zendesk_Users"
+}

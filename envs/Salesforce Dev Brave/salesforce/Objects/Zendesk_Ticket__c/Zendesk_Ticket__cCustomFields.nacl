@@ -1,0 +1,30 @@
+type salesforce.Zendesk_Ticket__c {
+  salesforce.Picklist Integration_Status__c {
+    apiName = "Zendesk_Ticket__c.Integration_Status__c"
+    externalId = false
+    label = "Integration Status"
+    trackTrending = false
+    valueSet = [
+      {
+        fullName = "Not integrated"
+        default = false
+        label = "Not integrated"
+      },
+      {
+        fullName = "Visible"
+        default = false
+        label = "Visible"
+      },
+      {
+        fullName = "Editable"
+        default = false
+        label = "Editable"
+      },
+    ]
+    sorted = false
+    restricted = true
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

@@ -1,0 +1,10 @@
+salesforce.ValidationRule Account_Invalid_name {
+  fullName = "Account.Invalid_name"
+  active = true
+  errorConditionFormula = "Name = \"Invalid\""
+  errorMessage = "This is not a good name!"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Invalid_name"
+}

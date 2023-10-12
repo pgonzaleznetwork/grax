@@ -1,0 +1,15 @@
+salesforce.Trigger_Context_Status__mdt Trigger_Context_Status_no_match@uuvu {
+  label = "no match"
+  protected = false
+  fullName = "Trigger_Context_Status.no_match"
+  Enable_After_Delete__c = true
+  Enable_After_Insert__c = true
+  Enable_After_Undelete__c = true
+  Enable_After_Update__c = true
+  Enable_Before_Delete__c = true
+  Enable_Before_Insert__c = true
+  Enable_Before_Update__c = true
+  related_class__c = "something"
+  the_instance__c = "triggerdmlSUPPORT"
+  _alias = "no match"
+}

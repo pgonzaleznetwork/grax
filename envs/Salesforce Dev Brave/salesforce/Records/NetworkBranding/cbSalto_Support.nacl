@@ -1,0 +1,20 @@
+salesforce.NetworkBranding cbSalto_Support {
+  loginFooterText = "salesforce.com"
+  loginLogo = "Experiences_Shared_Document_Folder/Screenshot_2022_12_06_at_11_45_14_png.png"
+  loginLogoName = "Screenshot 2022-12-06 at 11.45.14.png"
+  loginPrimaryColor = "#1797C0"
+  loginQuaternaryColor = "#B1BAC1"
+  network = "Salto Support"
+  primaryColor = "#1797C0"
+  primaryComplementColor = "#FFFFFF"
+  quaternaryColor = "#B1BAC1"
+  quaternaryComplementColor = "#222222"
+  secondaryColor = "#51606E"
+  tertiaryColor = "#DDE4E9"
+  tertiaryComplementColor = "#222222"
+  zeronaryColor = "#51606E"
+  zeronaryComplementColor = "#FFFFFF"
+  fullName = "cbSalto_Support"
+  content = file("salesforce/Records/NetworkBranding/cbSalto_Support.networkBranding")
+  _alias = "cbSalto_Support"
+}

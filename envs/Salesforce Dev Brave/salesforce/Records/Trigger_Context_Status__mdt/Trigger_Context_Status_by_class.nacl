@@ -1,0 +1,14 @@
+salesforce.Trigger_Context_Status__mdt Trigger_Context_Status_by_class@uuvu {
+  label = "by class"
+  protected = false
+  fullName = "Trigger_Context_Status.by_class"
+  Enable_After_Delete__c = true
+  Enable_After_Insert__c = true
+  Enable_After_Undelete__c = true
+  Enable_After_Update__c = true
+  Enable_Before_Delete__c = true
+  Enable_Before_Insert__c = true
+  Enable_Before_Update__c = true
+  related_class__c = "triggerDMlsupport"
+  _alias = "by class"
+}

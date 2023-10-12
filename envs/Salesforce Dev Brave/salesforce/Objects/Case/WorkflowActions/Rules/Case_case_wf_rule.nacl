@@ -1,0 +1,10 @@
+salesforce.WorkflowRule Case_case_wf_rule@vsb {
+  fullName = "Case.case wf-rule"
+  active = false
+  formula = "IF(ISPICKVAL( Origin ,\"Web\"),true,false)"
+  triggerType = "onCreateOnly"
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case.case wf-rule"
+}

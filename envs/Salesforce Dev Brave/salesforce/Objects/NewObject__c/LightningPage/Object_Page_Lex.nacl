@@ -1,0 +1,50 @@
+salesforce.LightningPage Object_Page_Lex {
+  flexiPageRegions = [
+    {
+      name = "header"
+      type = "Region"
+    },
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentInstanceProperties = [
+              {
+                name = "decorate"
+                value = "true"
+              },
+            ]
+            componentName = "flexipage:richText"
+            identifier = "flexipage_richText"
+            visibilityRule = {
+              criteria = [
+                {
+                  leftValue = "{!Record.Field_1__c}"
+                  operator = "EQUAL"
+                  rightValue = "false"
+                },
+              ]
+            }
+          }
+        },
+      ]
+      name = "main"
+      type = "Region"
+    },
+  ]
+  masterLabel = "Object Page Lex"
+  sobjectType = "NewObject__c"
+  template = {
+    name = "flexipage:recordHomeSimpleViewTemplate"
+    properties = {
+      name = "enablePageActionConfig"
+      value = "false"
+    }
+  }
+  type = "RecordPage"
+  fullName = "Object_Page_Lex"
+  _parent = [
+    salesforce.NewObject__c,
+  ]
+  _alias = "Object_Page_Lex"
+}

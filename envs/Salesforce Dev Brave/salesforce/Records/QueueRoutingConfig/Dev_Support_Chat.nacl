@@ -1,0 +1,9 @@
+salesforce.QueueRoutingConfig Dev_Support_Chat {
+  fullName = "Dev_Support_Chat"
+  capacityWeight = 5
+  isAttributeBased = false
+  label = "Dev Support (Chat)"
+  routingModel = "MOST_AVAILABLE"
+  routingPriority = 2
+  _alias = "Dev Support (Chat)"
+}

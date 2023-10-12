@@ -1,0 +1,15 @@
+salesforce.WorkflowTask Center__c_task_on_center_object@uuvuuu {
+  fullName = "Center__c.task_on_center_object"
+  assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  assignedToType = "user"
+  dueDateOffset = 0
+  notifyAssignee = false
+  priority = "Normal"
+  protected = false
+  status = "Not Started"
+  subject = "task on center object"
+  _parent = [
+    salesforce.Center__c,
+  ]
+  _alias = "Center__c.task_on_center_object"
+}

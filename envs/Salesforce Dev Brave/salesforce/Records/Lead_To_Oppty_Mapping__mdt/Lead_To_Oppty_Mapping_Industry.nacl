@@ -1,0 +1,8 @@
+salesforce.Lead_To_Oppty_Mapping__mdt Lead_To_Oppty_Mapping_Industry@uuuv {
+  label = "Industry"
+  protected = false
+  fullName = "Lead_To_Oppty_Mapping.Industry"
+  Lead_Field__c = "Industry"
+  Opportunity_Field__c = "Industry"
+  _alias = "Industry"
+}

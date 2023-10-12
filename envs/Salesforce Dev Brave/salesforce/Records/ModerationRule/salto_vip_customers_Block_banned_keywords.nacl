@@ -1,0 +1,37 @@
+salesforce.ModerationRule salto_vip_customers_Block_banned_keywords@bbvuu {
+  fullName = "salto-vip-customers.Block_banned_keywords"
+  action = "Block"
+  active = false
+  description = "Posts or comments with banned words aren't saved to the community feed"
+  entitiesAndFields = [
+    {
+      entityName = "FeedComment"
+      fieldName = "RawCommentBody"
+      keywordList = "salto-vip-customers.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "LinkUrl"
+      keywordList = "salto-vip-customers.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "RawBody"
+      keywordList = "salto-vip-customers.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "Title"
+      keywordList = "salto-vip-customers.Banned"
+    },
+    {
+      entityName = "FeedPollChoice"
+      fieldName = "ChoiceBody"
+      keywordList = "salto-vip-customers.Banned"
+    },
+  ]
+  masterLabel = "Block posts or comments containing banned keywords"
+  type = "Content"
+  userMessage = "You can't use %BLOCKED_KEYWORD% or other inappropriate words in this community. Review your content and try again."
+  _alias = "salto-vip-customers.Block_banned_keywords"
+}

@@ -1,0 +1,48 @@
+salesforce.Flow Flow_used_everywhere {
+  fullName = "Flow_used_everywhere"
+  apiVersion = 54
+  interviewLabel = "Flow used everywhere {!$Flow.CurrentDateTime}"
+  label = "Flow used everywhere"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  recordLookups = [
+    {
+      name = "Get_Contacts"
+      label = "Get Contacts"
+      locationX = 176
+      locationY = 158
+      assignNullValuesIfNoRecordsFound = false
+      getFirstRecordOnly = true
+      object = salesforce.Contact
+      storeOutputAutomatically = true
+    },
+  ]
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "Get_Contacts"
+    }
+  }
+  status = "Active"
+  _alias = "Flow used everywhere"
+}

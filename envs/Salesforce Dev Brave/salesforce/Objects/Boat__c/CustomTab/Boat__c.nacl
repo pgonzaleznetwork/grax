@@ -1,0 +1,9 @@
+salesforce.CustomTab Boat__c {
+  fullName = "Boat__c"
+  customObject = true
+  motif = "Custom54: Boat"
+  _parent = [
+    salesforce.Boat__c,
+  ]
+  _alias = "Boat__c"
+}

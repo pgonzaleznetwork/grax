@@ -1,0 +1,11 @@
+salesforce.ValidationRule Contact_Cannot_edited_unapproved_contact {
+  fullName = "Contact.Cannot_edited_unapproved_contact"
+  active = true
+  errorConditionFormula = "IF( ISPICKVAL( Support_Status__c ,\"Pending Approval\"), TRUE,FALSE)"
+  errorDisplayField = salesforce.Contact.field.Support_Status__c
+  errorMessage = "Cannot edited unapproved contact"
+  _parent = [
+    salesforce.Contact,
+  ]
+  _alias = "Contact.Cannot_edited_unapproved_contact"
+}

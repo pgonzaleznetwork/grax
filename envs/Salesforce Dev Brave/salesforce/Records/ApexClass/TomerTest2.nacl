@@ -1,0 +1,7 @@
+salesforce.ApexClass TomerTest2 {
+  apiVersion = 54
+  status = "Active"
+  fullName = "TomerTest2"
+  content = file("salesforce/Records/ApexClass/TomerTest2.cls")
+  _alias = "TomerTest2"
+}

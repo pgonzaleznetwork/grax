@@ -1,0 +1,12 @@
+salesforce.ApexClass SupportEmail {
+  apiVersion = 53
+  status = "Active"
+  fullName = "SupportEmail"
+  content = file("salesforce/Records/ApexClass/SupportEmail.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Case
+    },
+  ]
+  _alias = "SupportEmail"
+}

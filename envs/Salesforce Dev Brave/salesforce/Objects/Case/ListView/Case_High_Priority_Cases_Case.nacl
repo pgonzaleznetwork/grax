@@ -1,0 +1,13 @@
+salesforce.ListView Case_High_Priority_Cases_Case {
+  fullName = "Case.High_Priority_Cases_Case"
+  filterScope = "Queue"
+  label = "High-Priority Cases"
+  queue = salesforce.Queue.instance.High_Priority_Cases
+  sharedTo = {
+    allInternalUsers = ""
+  }
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "High-Priority Cases"
+}

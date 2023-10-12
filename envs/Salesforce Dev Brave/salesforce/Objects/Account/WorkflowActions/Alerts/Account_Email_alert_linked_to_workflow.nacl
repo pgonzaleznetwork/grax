@@ -1,0 +1,17 @@
+salesforce.WorkflowAlert Account_Email_alert_linked_to_workflow@vuuuu {
+  fullName = "Account.Email_alert_linked_to_workflow"
+  description = "Email alert linked to workflow"
+  protected = false
+  recipients = [
+    {
+      recipient = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+      type = "user"
+    },
+  ]
+  senderType = "CurrentUser"
+  template = salesforce.EmailTemplate.instance.unfiled_public_CommunityChangePasswordEmailTemplate@zcd
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Email_alert_linked_to_workflow"
+}

@@ -1,0 +1,4 @@
+salesforce.InstalledPackage nebc {
+  fullName = "nebc"
+  _alias = "nebc"
+}

@@ -1,0 +1,6 @@
+salesforce.CustomPermission featureCanEditClosedAccounts {
+  isLicensed = false
+  label = "featureCanEditClosedAccounts"
+  fullName = "featureCanEditClosedAccounts"
+  _alias = "featureCanEditClosedAccounts"
+}

@@ -1,0 +1,12 @@
+salesforce.ApexClass IsAdmin {
+  apiVersion = 54
+  status = "Active"
+  fullName = "IsAdmin"
+  content = file("salesforce/Records/ApexClass/IsAdmin.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.User
+    },
+  ]
+  _alias = "IsAdmin"
+}

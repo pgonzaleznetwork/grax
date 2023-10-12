@@ -1,0 +1,63 @@
+salesforce.ApprovalProcess Zendesk_Ticket__c_Approve_Zendesk_Integration@uuuvuu {
+  fullName = "Zendesk_Ticket__c.Approve_Zendesk_Integration"
+  active = false
+  allowRecall = false
+  allowedSubmitters = {
+    type = "owner"
+  }
+  approvalPageFields = {
+    field = [
+      "Name",
+      "Owner",
+    ]
+  }
+  approvalStep = [
+    {
+      allowDelegate = false
+      assignedApprover = {
+        approver = {
+          type = "adhoc"
+        }
+      }
+      label = "Step 1"
+      name = "Step_1"
+    },
+    {
+      allowDelegate = false
+      assignedApprover = {
+        approver = {
+          name = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+          type = "user"
+        }
+        whenMultipleApprovers = "FirstResponse"
+      }
+      entryCriteria = {
+        criteriaItems = {
+          field = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+          operation = "equals"
+          value = "Editable"
+        }
+      }
+      label = "Step 2"
+      name = "Step_2"
+      rejectBehavior = {
+        type = "RejectRequest"
+      }
+    },
+  ]
+  enableMobileDeviceAccess = false
+  entryCriteria = {
+    criteriaItems = {
+      field = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+      operation = "equals"
+      value = "Visible,Editable"
+    }
+  }
+  finalApprovalRecordLock = true
+  finalRejectionRecordLock = false
+  label = "Approve Zendesk Integration"
+  processOrder = 0
+  recordEditability = "AdminOnly"
+  showApprovalHistory = true
+  _alias = "Approve Zendesk Integration"
+}

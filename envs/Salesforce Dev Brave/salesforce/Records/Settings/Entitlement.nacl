@@ -1,0 +1,17 @@
+salesforce.EntitlementSettings {
+  fullName = "Entitlement"
+  assetLookupLimitedToActiveEntitlementsOnAccount = true
+  assetLookupLimitedToActiveEntitlementsOnContact = false
+  assetLookupLimitedToSameAccount = true
+  assetLookupLimitedToSameContact = false
+  enableEntitlementVersioning = true
+  enableEntitlements = true
+  enableMilestoneFeedItem = true
+  enableMilestoneStoppedTime = false
+  entitlementLookupLimitedToActiveStatus = true
+  entitlementLookupLimitedToSameAccount = true
+  entitlementLookupLimitedToSameAsset = false
+  entitlementLookupLimitedToSameContact = false
+  ignoreMilestoneBusinessHours = false
+  _alias = "Entitlement"
+}

@@ -1,0 +1,625 @@
+salesforce.Flow Create_a_Customer_Support_Case {
+  fullName = "Create_a_Customer_Support_Case"
+  apiVersion = 56
+  assignments = [
+    {
+      name = "Assign_Stage_1"
+      label = "Assign Stage 1"
+      locationX = 176
+      locationY = 220
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "Contact_Details_Stage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Confirm_Case_Title"
+      }
+    },
+    {
+      name = "Assign_Stage_2"
+      label = "Assign Stage 2"
+      locationX = 573
+      locationY = 439
+      assignmentItems = [
+        {
+          assignToReference = "$Flow.CurrentStage"
+          operator = "Assign"
+          value = {
+            elementReference = "Case_Details_Stage"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Case_Details_Screen"
+      }
+    },
+  ]
+  decisions = [
+    {
+      name = "Does_Contact_Exist"
+      label = "Does Contact Exist"
+      locationX = 365
+      locationY = 450
+      defaultConnector = {
+        targetReference = "Assign_Stage_2"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Contact_Not_Found"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "curContact.Id"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Create_Contact"
+          }
+          label = "Contact Not Found"
+        },
+      ]
+    },
+  ]
+  dynamicChoiceSets = [
+    {
+      name = "Case_Origin_Picklist"
+      dataType = "Picklist"
+      picklistField = salesforce.Case.field.Origin
+      picklistObject = salesforce.Case
+    },
+    {
+      name = "Case_Type_Picklist"
+      dataType = "Picklist"
+      picklistField = salesforce.Case.field.Type
+      picklistObject = salesforce.Case
+    },
+  ]
+  environments = "Default"
+  formulas = [
+    {
+      name = "User_First_Name_Formula"
+      dataType = "String"
+      expression = "{!$User.FirstName}"
+    },
+  ]
+  interviewLabel = "Create a Customer Support Case {!$Flow.CurrentDateTime}"
+  label = "Create a Customer Support Case"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "FREE_FORM_CANVAS"
+      }
+    },
+  ]
+  processType = "Flow"
+  recordCreates = [
+    {
+      name = "Create_Case_Record"
+      label = "Create Case Record"
+      locationX = 717
+      locationY = 609
+      connector = {
+        targetReference = "Case_Lookup"
+      }
+      inputAssignments = [
+        {
+          field = salesforce.Case.field.ContactId
+          value = {
+            elementReference = "curContact.Id"
+          }
+        },
+        {
+          field = salesforce.Case.field.Description
+          value = {
+            elementReference = "Case_Details_Input"
+          }
+        },
+        {
+          field = salesforce.Case.field.Origin
+          value = {
+            elementReference = "Case_Origin_Picklist"
+          }
+        },
+        {
+          field = salesforce.Case.field.Subject
+          value = {
+            elementReference = "Case_Subject_Input"
+          }
+        },
+        {
+          field = salesforce.Case.field.Type
+          value = {
+            elementReference = "Case_Type_Picklist"
+          }
+        },
+      ]
+      object = salesforce.Case
+      storeOutputAutomatically = true
+    },
+    {
+      name = "Create_Contact"
+      label = "Create Contact"
+      locationX = 371
+      locationY = 197
+      assignRecordIdToReference = "curContact.Id"
+      connector = {
+        targetReference = "Assign_Stage_2"
+      }
+      faultConnector = {
+        targetReference = "Contact_Error_Screen"
+      }
+      inputAssignments = [
+        {
+          field = salesforce.Contact.field.Email
+          value = {
+            elementReference = "Email_Input.value"
+          }
+        },
+        {
+          field = "FirstName"
+          value = {
+            elementReference = "First_Name_Input"
+          }
+        },
+        {
+          field = "LastName"
+          value = {
+            elementReference = "Last_Name_Input"
+          }
+        },
+      ]
+      object = salesforce.Contact
+    },
+  ]
+  recordLookups = [
+    {
+      name = "Case_Lookup"
+      label = "Case Lookup"
+      locationX = 717
+      locationY = 461
+      assignNullValuesIfNoRecordsFound = true
+      connector = {
+        targetReference = "Case_Created_Screen"
+      }
+      filterLogic = "and"
+      filters = [
+        {
+          field = salesforce.Case.field.Id
+          operator = "EqualTo"
+          value = {
+            elementReference = "Create_Case_Record"
+          }
+        },
+      ]
+      object = salesforce.Case
+      outputAssignments = [
+        {
+          assignToReference = "case.CaseNumber"
+          field = salesforce.Case.field.CaseNumber
+        },
+      ]
+    },
+    {
+      name = "Contact_Lookup"
+      label = "Contact Lookup"
+      locationX = 373
+      locationY = 599
+      assignNullValuesIfNoRecordsFound = true
+      connector = {
+        targetReference = "Does_Contact_Exist"
+      }
+      filterLogic = "1 AND 2 AND 3"
+      filters = [
+        {
+          field = "FirstName"
+          operator = "EqualTo"
+          value = {
+            elementReference = "First_Name_Input"
+          }
+        },
+        {
+          field = "LastName"
+          operator = "EqualTo"
+          value = {
+            elementReference = "Last_Name_Input"
+          }
+        },
+        {
+          field = salesforce.Contact.field.Support_Status__c
+          operator = "EqualTo"
+          value = {
+            stringValue = "Pending Finance Approval"
+          }
+        },
+      ]
+      object = salesforce.Contact
+      outputAssignments = [
+        {
+          assignToReference = "curContact.Id"
+          field = salesforce.Contact.field.Id
+        },
+      ]
+      sortField = "LastName"
+      sortOrder = "Desc"
+    },
+  ]
+  screens = [
+    {
+      name = "Case_Created_Screen"
+      label = "Case Created"
+      locationX = 717
+      locationY = 280
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      fields = [
+        {
+          name = "Case_Created_Title"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"font-size: 20px;\">Case Created</span></p>"
+          fieldType = "DisplayText"
+        },
+        {
+          name = "Case_Created_Script"
+          extensionName = "lbpm:flowScript"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "script"
+              value = {
+                elementReference = "Case_Created_Script_Template"
+              }
+            },
+            {
+              name = "recordId"
+              value = {
+                elementReference = "case.CaseNumber"
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Case_Details_Screen"
+      label = "Get Case Details"
+      locationX = 573
+      locationY = 608
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      connector = {
+        targetReference = "Create_Case_Record"
+      }
+      fields = [
+        {
+          name = "Case_Details_Title"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"font-size: 20px;\">Get Case Details</span></p>"
+          fieldType = "DisplayText"
+        },
+        {
+          name = "Case_Details_Script"
+          extensionName = "lbpm:flowScript"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "script"
+              value = {
+                elementReference = "Case_Details_Script_Template"
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+        {
+          name = "Case_Type_Input"
+          choiceReferences = [
+            "Case_Type_Picklist",
+          ]
+          dataType = "String"
+          fieldText = "Case Type"
+          fieldType = "DropdownBox"
+          isRequired = true
+        },
+        {
+          name = "Case_Origin_Input"
+          choiceReferences = [
+            "Case_Origin_Picklist",
+          ]
+          dataType = "String"
+          fieldText = "Case Origin"
+          fieldType = "DropdownBox"
+          isRequired = true
+        },
+        {
+          name = "Case_Subject_Input"
+          dataType = "String"
+          fieldText = "Case Subject"
+          fieldType = "InputField"
+          isRequired = true
+        },
+        {
+          name = "Case_Details_Input"
+          fieldText = "Case Details"
+          fieldType = "LargeTextArea"
+          isRequired = true
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Confirm_Case_Title"
+      label = "Confirm Customer Info"
+      locationX = 176
+      locationY = 371
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      connector = {
+        targetReference = "Confirm_Contact_Details_Screen"
+      }
+      fields = [
+        {
+          name = "Confirm_Identity_Title"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"font-size: 20px; color: rgb(62, 62, 60); background-color: rgb(255, 255, 255);\">Confirm Customer Info﻿</span></p>"
+          fieldType = "DisplayText"
+        },
+        {
+          name = "Customer_Name_Script"
+          extensionName = "lbpm:flowScript"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "script"
+              value = {
+                elementReference = "Customer_Name_Script_Template"
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+        {
+          name = "First_Name_Input"
+          dataType = "String"
+          fieldText = "First Name"
+          fieldType = "InputField"
+          isRequired = true
+        },
+        {
+          name = "Last_Name_Input"
+          dataType = "String"
+          fieldText = "Last Name"
+          fieldType = "InputField"
+          isRequired = true
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Confirm_Contact_Details_Screen"
+      label = "Confirm Customer Details"
+      locationX = 176
+      locationY = 600
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      connector = {
+        targetReference = "Contact_Lookup"
+      }
+      fields = [
+        {
+          name = "Confirm_Contact_Details_Title"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"background-color: rgb(255, 255, 255); font-size: 20px; color: rgb(62, 62, 60);\">Confirm Customer Details</span></p>"
+          fieldType = "DisplayText"
+        },
+        {
+          name = "Contact_Details_Script"
+          extensionName = "lbpm:flowScript"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "script"
+              value = {
+                elementReference = "Contact_Details_Script_Template"
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+        {
+          name = "Email_Input"
+          extensionName = "flowruntime:email"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "label"
+              value = {
+                elementReference = "Email_Title_Template"
+              }
+            },
+            {
+              name = "required"
+              value = {
+                booleanValue = false
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+        {
+          name = "Phone_Input"
+          extensionName = "flowruntime:phone"
+          fieldType = "ComponentInstance"
+          inputParameters = [
+            {
+              name = "label"
+              value = {
+                elementReference = "Phone_Title_Template"
+              }
+            },
+            {
+              name = "required"
+              value = {
+                booleanValue = true
+              }
+            },
+          ]
+          inputsOnNextNavToAssocScrn = "UseStoredValues"
+          isRequired = true
+          storeOutputAutomatically = true
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Contact_Error_Screen"
+      label = "Create a Case"
+      locationX = 581
+      locationY = 198
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      connector = {
+        targetReference = "Assign_Stage_2"
+      }
+      fields = [
+        {
+          name = "Contact_Error_Title"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"font-size: 20px; color: rgb(194, 57, 52);\">{!Contact_Error_Title_Template}</span></p>"
+          fieldType = "DisplayText"
+        },
+        {
+          name = "Contact_Error_Desc"
+          fieldText = "<p style=\"text-align: center;\"><span style=\"background-color: rgb(255, 255, 255); color: rgb(62, 62, 60);\">Verify the contact information or click Next to continue without associating a contact with your case.</span></p>"
+          fieldType = "DisplayText"
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+  ]
+  sourceTemplate = "setup_service_experience__Create_Case"
+  stages = [
+    {
+      name = "Case_Details_Stage"
+      isActive = true
+      label = "Get Case Details"
+      stageOrder = 20
+    },
+    {
+      name = "Contact_Details_Stage"
+      isActive = true
+      label = "Confirm Customer Details"
+      stageOrder = 10
+    },
+  ]
+  start = {
+    locationX = 50
+    locationY = 50
+    connector = {
+      targetReference = "Assign_Stage_1"
+    }
+  }
+  status = "Active"
+  textTemplates = [
+    {
+      name = "Case_Created_Script_Template"
+      isViewedAsPlainText = false
+      text = "Your case (#{!case.CaseNumber}) is created! We’ll be in touch with next steps."
+    },
+    {
+      name = "Case_Details_Script_Template"
+      isViewedAsPlainText = false
+      text = "What can I help you with today?"
+    },
+    {
+      name = "Contact_Details_Script_Template"
+      isViewedAsPlainText = false
+      text = "Thanks, {!First_Name_Input}!  Next, can you please provide your email address and phone number?"
+    },
+    {
+      name = "Contact_Error_Title_Template"
+      isViewedAsPlainText = false
+      text = "<p style=\"text-align: center;\"><span style=\"font-size: 20px; color: rgb(194, 57, 52);\">Contact information is incorrect</span></p>"
+    },
+    {
+      name = "Customer_Name_Script_Template"
+      isViewedAsPlainText = false
+      text = "Hello, this is {!User_First_Name_Formula}. Can you please provide your first and last name?"
+    },
+    {
+      name = "Email_Title_Template"
+      isViewedAsPlainText = false
+      text = "Email Address"
+    },
+    {
+      name = "Flow_Title_Text_Template"
+      isViewedAsPlainText = false
+      text = "Create a Case"
+    },
+    {
+      name = "Phone_Title_Template"
+      isViewedAsPlainText = false
+      text = "Phone Number"
+    },
+  ]
+  variables = [
+    {
+      name = "case"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.Case
+    },
+    {
+      name = "contact"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.Contact
+    },
+    {
+      name = "curContact"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.Contact
+    },
+  ]
+  _alias = "Create a Customer Support Case"
+}

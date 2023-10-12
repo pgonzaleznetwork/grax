@@ -1,0 +1,12 @@
+salesforce.EmailTemplate unfiled_public_oppty_stage@zcdu {
+  available = true
+  encodingKey = "ISO-8859-1"
+  name = "oppty stage"
+  style = "none"
+  subject = "oppty won"
+  type = "custom"
+  uiType = "Aloha"
+  fullName = "unfiled$public/oppty_stage"
+  content = file("salesforce/Records/EmailTemplate/unfiled$public/oppty_stage/oppty_stage.email")
+  _alias = "unfiled$public/oppty_stage"
+}

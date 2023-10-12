@@ -1,0 +1,7 @@
+salesforce.ApexClass TriggerUtils_TriggerStatus {
+  apiVersion = 45
+  status = "Active"
+  fullName = "TriggerUtils_TriggerStatus"
+  content = file("salesforce/Records/ApexClass/TriggerUtils_TriggerStatus.cls")
+  _alias = "TriggerUtils_TriggerStatus"
+}

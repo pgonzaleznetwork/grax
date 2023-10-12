@@ -1,0 +1,7 @@
+salesforce.ApexClass MergeConflict {
+  apiVersion = 54
+  status = "Active"
+  fullName = "MergeConflict"
+  content = file("salesforce/Records/ApexClass/MergeConflict.cls")
+  _alias = "MergeConflict"
+}

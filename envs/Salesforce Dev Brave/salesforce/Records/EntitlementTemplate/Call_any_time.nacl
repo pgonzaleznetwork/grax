@@ -1,0 +1,10 @@
+salesforce.EntitlementTemplate Call_any_time@s {
+  fullName = "Call any time"
+  businessHours = "Default"
+  casesPerEntitlement = 3
+  entitlementProcess = salesforce.EntitlementProcess.instance.premier_support_v2@su
+  isPerIncident = true
+  term = 10
+  type = "Phone Support"
+  _alias = "Call any time"
+}

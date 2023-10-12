@@ -1,0 +1,5 @@
+salesforce.InstalledPackage plusapp {
+  versionNumber = "1.26"
+  fullName = "plusapp"
+  _alias = "plusapp"
+}

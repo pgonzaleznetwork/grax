@@ -1,0 +1,19 @@
+type salesforce.SRM_Package_XML_Setting__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "SRM_Package_XML_Setting__mdt"
+  metadataType = "CustomMetadata"
+  label = "SRM Package XML Setting"
+  pluralLabel = "SRM Package XML Settings"
+  _alias = "SRM Package XML Setting"
+}

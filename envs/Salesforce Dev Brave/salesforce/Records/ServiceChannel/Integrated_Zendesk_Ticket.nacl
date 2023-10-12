@@ -1,0 +1,13 @@
+salesforce.ServiceChannel Integrated_Zendesk_Ticket {
+  fullName = "Integrated_Zendesk_Ticket"
+  doesMinimizeWidgetOnAccept = false
+  hasAutoAcceptEnabled = false
+  label = "Integrated Zendesk Ticket"
+  relatedEntityType = salesforce.Zendesk_Ticket__c
+  secondaryRoutingPriorityField = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+  serviceChannelFieldPriorities = {
+    priority = 1
+    value = "Not integrated"
+  }
+  _alias = "Integrated Zendesk Ticket"
+}

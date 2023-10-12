@@ -1,0 +1,15 @@
+salesforce.Queue Dev_Support_Chat {
+  fullName = "Dev_Support_Chat"
+  doesSendEmailToMembers = false
+  name = "Dev Support (Chat)"
+  queueMembers = {
+    users = {
+      user = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+    }
+  }
+  queueRoutingConfig = salesforce.QueueRoutingConfig.instance.Dev_Support_Chat
+  queueSobject = {
+    sobjectType = "LiveChatTranscript"
+  }
+  _alias = "Dev_Support_Chat"
+}

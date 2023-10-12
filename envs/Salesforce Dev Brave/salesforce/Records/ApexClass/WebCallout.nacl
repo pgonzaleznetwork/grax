@@ -1,0 +1,7 @@
+salesforce.ApexClass WebCallout {
+  apiVersion = 53
+  status = "Active"
+  fullName = "WebCallout"
+  content = file("salesforce/Records/ApexClass/WebCallout.cls")
+  _alias = "WebCallout"
+}

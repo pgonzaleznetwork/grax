@@ -1,0 +1,7 @@
+salesforce.ApexClass RestoreClass {
+  apiVersion = 53
+  status = "Active"
+  fullName = "RestoreClass"
+  content = file("salesforce/Records/ApexClass/RestoreClass.cls")
+  _alias = "RestoreClass"
+}

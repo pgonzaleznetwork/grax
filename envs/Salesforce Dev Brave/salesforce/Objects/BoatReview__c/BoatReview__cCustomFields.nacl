@@ -1,0 +1,45 @@
+type salesforce.BoatReview__c {
+  salesforce.MasterDetail Boat__c {
+    apiName = "BoatReview__c.Boat__c"
+    deprecated = false
+    externalId = false
+    label = "Boat"
+    referenceTo = [
+      salesforce.Boat__c,
+    ]
+    relationshipLabel = "Boat Reviews"
+    relationshipName = "Boat_Reviews"
+    relationshipOrder = 0
+    reparentableMasterDetail = false
+    trackTrending = false
+    writeRequiresMasterRead = false
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Html Comment__c {
+    apiName = "BoatReview__c.Comment__c"
+    deprecated = false
+    externalId = false
+    label = "Comment"
+    length = 32768
+    trackTrending = false
+    visibleLines = 25
+    createable = true
+    updateable = true
+    queryable = true
+  }
+  salesforce.Number Rating__c {
+    apiName = "BoatReview__c.Rating__c"
+    deprecated = false
+    externalId = false
+    label = "Rating"
+    precision = 1
+    scale = 0
+    trackTrending = false
+    unique = false
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

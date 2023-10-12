@@ -1,0 +1,28 @@
+salesforce.RecordType Zendesk_Ticket__c_General {
+  fullName = "Zendesk_Ticket__c.General"
+  active = true
+  label = "General"
+  picklistValues = [
+    {
+      picklist = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+      values = [
+        {
+          fullName = "Editable"
+          default = false
+        },
+        {
+          fullName = "Not integrated"
+          default = false
+        },
+        {
+          fullName = "Visible"
+          default = false
+        },
+      ]
+    },
+  ]
+  _parent = [
+    salesforce.Zendesk_Ticket__c,
+  ]
+  _alias = "General"
+}

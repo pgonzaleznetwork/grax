@@ -1,0 +1,43 @@
+salesforce.DataCategoryGroup Skill_Group {
+  fullName = "Skill_Group"
+  active = true
+  dataCategory = {
+    dataCategory = [
+      {
+        dataCategory = [
+          {
+            label = "apex"
+            name = "apex"
+          },
+          {
+            label = "api"
+            name = "api"
+          },
+        ]
+        label = "platform"
+        name = "platform"
+      },
+      {
+        dataCategory = [
+          {
+            label = "live agent"
+            name = "live_agent"
+          },
+          {
+            label = "macros"
+            name = "macros"
+          },
+        ]
+        label = "service cloud"
+        name = "service_cloud"
+      },
+    ]
+    label = "All"
+    name = "All"
+  }
+  label = "Skill Group"
+  objectUsage = {
+    object = "KnowledgeArticleVersion"
+  }
+  _alias = "Skill Group"
+}

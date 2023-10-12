@@ -1,0 +1,12 @@
+salesforce.EmailTemplate unfiled_public_Account_Integration_Disconencted@zcduu {
+  available = true
+  encodingKey = "ISO-8859-1"
+  name = "Account Integration Disconencted"
+  style = "none"
+  subject = "Account {!Account.Name} is no longer connected to Oracle"
+  type = "text"
+  uiType = "Aloha"
+  fullName = "unfiled$public/Account_Integration_Disconencted"
+  content = file("salesforce/Records/EmailTemplate/unfiled$public/Account_Integration_Disconencted/Account_Integration_Disconencted.email")
+  _alias = "unfiled$public/Account_Integration_Disconencted"
+}

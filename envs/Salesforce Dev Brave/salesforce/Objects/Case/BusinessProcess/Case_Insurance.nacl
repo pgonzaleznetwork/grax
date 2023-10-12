@@ -1,0 +1,34 @@
+salesforce.BusinessProcess Case_Insurance {
+  fullName = "Case.Insurance"
+  isActive = true
+  values = [
+    {
+      fullName = "Closed"
+      default = false
+    },
+    {
+      fullName = "Escalated"
+      default = false
+    },
+    {
+      fullName = "Merged"
+      default = false
+    },
+    {
+      fullName = "New"
+      default = true
+    },
+    {
+      fullName = "Response Received"
+      default = false
+    },
+    {
+      fullName = "Working"
+      default = false
+    },
+  ]
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case.Insurance"
+}

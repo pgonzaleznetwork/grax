@@ -1,0 +1,7 @@
+salesforce.ApexClass TemplateClass {
+  apiVersion = 50
+  status = "Active"
+  fullName = "TemplateClass"
+  content = file("salesforce/Records/ApexClass/TemplateClass.cls")
+  _alias = "TemplateClass"
+}

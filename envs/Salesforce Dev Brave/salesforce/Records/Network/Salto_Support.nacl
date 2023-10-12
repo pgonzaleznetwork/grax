@@ -1,0 +1,77 @@
+salesforce.Network Salto_Support@s {
+  fullName = "Salto Support"
+  allowInternalUserLogin = false
+  allowMembersToFlag = false
+  caseCommentEmailTemplate = salesforce.EmailTemplate.instance.unfiled_public_CommunityChangePasswordEmailTemplate@zcd
+  changePasswordTemplate = "unfiled$public/CommunityChangePasswordEmailTemplate"
+  chgEmailVerNewTemplate = "unfiled$public/ExperienceCloudSelfRegMicroBatchSubErrorEmailTemplate"
+  chgEmailVerOldTemplate = "unfiled$public/CommunityChgEmailVerOldTemplate"
+  communityRoles = {
+    customerUserRole = "Customer Pro"
+    employeeUserRole = "Employee Pro"
+    partnerUserRole = "Partner Pro"
+  }
+  deviceActEmailTemplate = salesforce.EmailTemplate.instance.unfiled_public_SUPPORTSelfServiceNewCommentNotificationSAMPLE@zcd
+  disableReputationRecordConversations = true
+  emailSenderAddress = "pgonzaleznetwork@gmail.com"
+  emailSenderName = "Salto Support"
+  enableApexCDNCaching = true
+  enableCustomVFErrorPageOverrides = false
+  enableDirectMessages = true
+  enableExperienceBundleBasedSnaOverrideEnabled = false
+  enableGuestChatter = false
+  enableGuestFileAccess = false
+  enableGuestMemberVisibility = false
+  enableImageOptimizationCDN = true
+  enableInvitation = false
+  enableKnowledgeable = false
+  enableMemberVisibility = false
+  enableNicknameDisplay = true
+  enablePrivateMessages = false
+  enableReputation = false
+  enableShowAllNetworkSettings = false
+  enableSiteAsContainer = true
+  enableTalkingAboutStats = true
+  enableTopicAssignmentRules = true
+  enableTopicSuggestions = false
+  enableUpDownVote = false
+  forgotPasswordTemplate = "unfiled$public/CommunityForgotPasswordEmailTemplate"
+  gatherCustomerSentimentData = false
+  headlessForgotPasswordTemplate = salesforce.EmailTemplate.instance.unfiled_public_CommunityHeadlessForgotPasswordTemplate@zcd
+  lockoutTemplate = "unfiled$public/CommunityChgEmailVerNewTemplate"
+  networkMemberGroups = {
+    permissionSet = [
+      "Omni_Setup_Flow",
+      "Knowledge_Manager_156158",
+      "GIFter",
+    ]
+    profile = [
+      "admin",
+      "knowledge manager",
+      "identity user",
+      "contractmanager",
+    ]
+  }
+  networkPageOverrides = {
+    changePasswordPageOverrideSetting = "Standard"
+    forgotPasswordPageOverrideSetting = "VisualForce"
+    homePageOverrideSetting = "Standard"
+    loginPageOverrideSetting = "VisualForce"
+    selfRegProfilePageOverrideSetting = "VisualForce"
+  }
+  picassoSite = "Salto_Support1"
+  selfRegMicroBatchSubErrorEmailTemplate = salesforce.EmailTemplate.instance.unfiled_public_ExperienceCloudSelfRegMicroBatchSubErrorEmailTemplate@zcd
+  selfRegistration = true
+  sendWelcomeEmail = true
+  site = salesforce.CustomSite.instance.Salto_Support
+  siteArchiveStatus = "NotArchived"
+  status = "UnderConstruction"
+  tabs = {
+    defaultTab = "home"
+    standardTab = "Chatter"
+  }
+  urlPathPrefix = "saltosupport"
+  verificationTemplate = "unfiled$public/CommunityLockoutEmailTemplate"
+  welcomeTemplate = "unfiled$public/CommunityWelcomeEmailTemplate"
+  _alias = "Salto Support"
+}

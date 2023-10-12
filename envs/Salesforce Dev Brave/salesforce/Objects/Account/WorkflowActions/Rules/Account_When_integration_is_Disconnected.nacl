@@ -1,0 +1,22 @@
+salesforce.WorkflowRule Account_When_integration_is_Disconnected@vsss {
+  fullName = "Account.When integration is Disconnected"
+  actions = [
+    {
+      name = salesforce.WorkflowAlert.instance.Account_Email_Account_Owner@vuu
+      type = "Alert"
+    },
+  ]
+  active = true
+  criteriaItems = [
+    {
+      field = salesforce.Account.field.Integration_Status__c
+      operation = "equals"
+      value = "Disconnected"
+    },
+  ]
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.When integration is Disconnected"
+}

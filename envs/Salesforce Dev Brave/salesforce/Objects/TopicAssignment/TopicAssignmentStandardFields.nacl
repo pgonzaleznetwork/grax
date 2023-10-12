@@ -1,0 +1,159 @@
+type salesforce.TopicAssignment {
+  serviceid Id {
+    apiName = "TopicAssignment.Id"
+    label = "Topic Assignment ID"
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup NetworkId {
+    apiName = "TopicAssignment.NetworkId"
+    referenceTo = [
+      salesforce.Network,
+    ]
+    label = "Network ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Lookup TopicId {
+    apiName = "TopicAssignment.TopicId"
+    relationshipName = "Topic"
+    referenceTo = [
+      salesforce.Topic,
+    ]
+    _required = true
+    label = "Topic ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Lookup EntityId {
+    apiName = "TopicAssignment.EntityId"
+    relationshipName = "Entity"
+    referenceTo = [
+      salesforce.Account,
+      salesforce.Asset,
+      salesforce.BoatReview__c,
+      salesforce.BoatType__c,
+      salesforce.Boat__c,
+      salesforce.Campaign,
+      salesforce.Case,
+      salesforce.Center__c,
+      salesforce.ChannelProgram,
+      salesforce.ChannelProgramLevel,
+      salesforce.Child__c,
+      "CodeBuilder__SessionData__c",
+      "CodeBuilder__Workspace__c",
+      salesforce.Contact,
+      "ContentDocument",
+      salesforce.Contract,
+      salesforce.Custom_Object__c,
+      salesforce.Customer_Support_Setting__c,
+      salesforce.Event,
+      salesforce.FeedItem,
+      salesforce.Knowledge__kav,
+      salesforce.Lead,
+      salesforce.LinkedArticle,
+      salesforce.NewObject__c,
+      salesforce.Opportunity,
+      salesforce.Order,
+      salesforce.Parent__c,
+      salesforce.PartnerFundAllocation,
+      salesforce.PartnerFundClaim,
+      salesforce.PartnerFundRequest,
+      salesforce.PartnerMarketingBudget,
+      salesforce.SRM_CRM_Sprint__c,
+      salesforce.SRM_Connected_Org__c,
+      salesforce.SRM_Development_Task__c,
+      salesforce.SRM_Jira_Ticket__c,
+      salesforce.SRM_Metadata__c,
+      salesforce.ServiceResource,
+      salesforce.ServiceResourceSkill,
+      salesforce.Session__c,
+      salesforce.Solution,
+      salesforce.Survey,
+      "SurveyQuestion",
+      salesforce.SurveyQuestionChoice,
+      salesforce.SurveyQuestionResponse,
+      salesforce.Task,
+      salesforce.Zendesk_Ticket__c,
+      "plusapp__Metadata_Alert__c",
+      "plusapp__Metadata_FieldTrip__c",
+      "plusapp__Metadata_Junction__c",
+      "plusapp__Metadata_Tags__c",
+      "plusapp__Metadata_Ticket__c",
+      "plusapp__Metadata_User__c",
+      "plusapp__Metadata__c",
+      "sonar__Analysis_Object__c",
+      "sonar__Analysis__c",
+      "sonar__Field_Details__c",
+      "sonar__Insight__c",
+      "sonar__SObject__c",
+    ]
+    _required = true
+    label = "Entity ID"
+    createable = true
+    updateable = false
+    queryable = true
+  }
+  salesforce.Text EntityKeyPrefix {
+    apiName = "TopicAssignment.EntityKeyPrefix"
+    length = 3
+    _required = true
+    label = "Record Key Prefix"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Text EntityType {
+    apiName = "TopicAssignment.EntityType"
+    length = 80
+    label = "Object Type"
+    createable = false
+    updateable = false
+    unique = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime CreatedDate {
+    apiName = "TopicAssignment.CreatedDate"
+    label = "Created Date"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Lookup CreatedById {
+    apiName = "TopicAssignment.CreatedById"
+    relationshipName = "CreatedBy"
+    referenceTo = [
+      salesforce.User,
+    ]
+    label = "Created By ID"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.Checkbox IsDeleted {
+    apiName = "TopicAssignment.IsDeleted"
+    defaultValue = false
+    label = "Deleted"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+  salesforce.DateTime SystemModstamp {
+    apiName = "TopicAssignment.SystemModstamp"
+    label = "System Modstamp"
+    createable = false
+    updateable = false
+    queryable = true
+    _hidden_value = true
+  }
+}

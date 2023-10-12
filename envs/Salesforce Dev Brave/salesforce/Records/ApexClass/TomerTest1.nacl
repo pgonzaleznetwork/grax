@@ -1,0 +1,12 @@
+salesforce.ApexClass TomerTest1 {
+  apiVersion = 54
+  status = "Active"
+  fullName = "TomerTest1"
+  content = file("salesforce/Records/ApexClass/TomerTest1.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Contract
+    },
+  ]
+  _alias = "TomerTest1"
+}

@@ -1,0 +1,61 @@
+salesforce.Flow When_integration_is_Disconnected {
+  fullName = "When_integration_is_Disconnected"
+  actionCalls = [
+    {
+      name = "Email_Account_Owner"
+      label = "Account.Email_Account_Owner"
+      locationX = 0
+      locationY = 0
+      actionName = salesforce.WorkflowAlert.instance.Account_Email_Account_Owner@vuu
+      actionType = "emailAlert"
+      flowTransactionModel = "CurrentTransaction"
+      inputParameters = [
+        {
+          name = "SObjectRowId"
+          value = {
+            elementReference = "$Record.Id"
+          }
+        },
+      ]
+      nameSegment = "Account.Email_Account_Owner"
+      versionSegment = 1
+    },
+  ]
+  apiVersion = 55
+  description = '''
+Migrated from the: When integration is Disconnected workflow rule
+Workflow rule description: "
+'''
+  label = "When integration is Disconnected"
+  migratedFromWorkflowRuleName = "When integration is Disconnected"
+  processMetadataValues = [
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  start = {
+    locationX = 0
+    locationY = 0
+    connector = {
+      targetReference = "Email_Account_Owner"
+    }
+    doesRequireRecordChangedToMeetCriteria = true
+    filterLogic = "and"
+    filters = {
+      field = salesforce.Account.field.Integration_Status__c
+      operator = "EqualTo"
+      value = {
+        stringValue = "Disconnected"
+      }
+    }
+    object = salesforce.Account
+    recordTriggerType = "CreateAndUpdate"
+    triggerType = "RecordAfterSave"
+  }
+  status = "Draft"
+  _alias = "When integration is Disconnected"
+}

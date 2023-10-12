@@ -1,0 +1,38 @@
+salesforce.LightningComponentBundle customCommunityComponent {
+  attr_fqn = "myLightningWebComponent"
+  apiVersion = 45
+  isExposed = true
+  masterLabel = "My Lightning Web Component"
+  targets = {
+    target = [
+      "lightningCommunity__Page",
+      "lightningCommunity__Default",
+    ]
+  }
+  targetConfigs = {
+    targetConfig = [
+      {
+        targets = "lightningCommunity__Default"
+        property = {
+          name = "buttonText"
+          type = "String"
+          default = "defaultText"
+        }
+      },
+    ]
+  }
+  fullName = "customCommunityComponent"
+  lwcResources = {
+    lwcResource = {
+      customCommunityComponent_js@v = {
+        source = file("salesforce/Records/LightningComponentBundle/customCommunityComponent/customCommunityComponent.js")
+        filePath = "lwc/customCommunityComponent/customCommunityComponent.js"
+      }
+      customCommunityComponent_html@v = {
+        source = file("salesforce/Records/LightningComponentBundle/customCommunityComponent/customCommunityComponent.html")
+        filePath = "lwc/customCommunityComponent/customCommunityComponent.html"
+      }
+    }
+  }
+  _alias = "customCommunityComponent"
+}

@@ -1,0 +1,4 @@
+salesforce.InstalledPackage sonar {
+  fullName = "sonar"
+  _alias = "sonar"
+}

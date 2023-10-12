@@ -1,0 +1,18 @@
+salesforce.ListView ActiveScratchOrg_All_Active_Scratch_Orgs {
+  fullName = "ActiveScratchOrg.All_Active_Scratch_Orgs"
+  columns = [
+    "Name",
+    "SignupUsername",
+    "Id",
+    "OrgName",
+    "Edition",
+    "CreatedDate",
+    "ExpirationDate",
+  ]
+  filterScope = "Everything"
+  label = "All Active Scratch Orgs"
+  _parent = [
+    salesforce.ActiveScratchOrg,
+  ]
+  _alias = "All Active Scratch Orgs"
+}

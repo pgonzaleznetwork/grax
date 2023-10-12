@@ -1,0 +1,7 @@
+salesforce.EmailFolder sales_Marketo_Email_Templates {
+  accessType = "Public"
+  name = "Marketo Email Templates"
+  publicFolderAccess = "ReadOnly"
+  fullName = "sales_Marketo_Email_Templates"
+  _alias = "sales_Marketo_Email_Templates"
+}

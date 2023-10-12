@@ -1,0 +1,14 @@
+salesforce.NavigationMenu SFDC_Default_Navigation_saltoUU002dvipUU002dcustomers {
+  fullName = "SFDC_Default_Navigation_saltoUU002dvipUU002dcustomers"
+  container = "salto-vip-customers"
+  containerType = "Network"
+  label = "Default Navigation"
+  navigationMenuItem = {
+    label = "Topics"
+    position = 0
+    publiclyAvailable = true
+    target = "ShowMoreTopics"
+    type = "NavigationalTopic"
+  }
+  _alias = "Default Navigation"
+}

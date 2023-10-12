@@ -1,0 +1,14 @@
+salesforce.WorkflowFieldUpdate Account_Update_oracle_Id@vuu {
+  fullName = "Account.Update_oracle_Id"
+  field = salesforce.Account.field.oracleId__c
+  formula = "\"1234ORA\""
+  name = "Update oracle Id"
+  notifyAssignee = false
+  operation = "Formula"
+  protected = false
+  reevaluateOnChange = false
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Update_oracle_Id"
+}

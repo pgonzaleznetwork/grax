@@ -1,0 +1,745 @@
+salesforce.Flow Add_User_to_Swarm {
+  fullName = "Add_User_to_Swarm"
+  actionCalls = [
+    {
+      name = "Check_Slack_integration_enablement"
+      label = "Check Slack integration enablement"
+      locationX = 545
+      locationY = 158
+      actionName = "swarmingCollaborationToolSettings"
+      actionType = "swarmingCollaborationToolSettings"
+      connector = {
+        targetReference = "Is_Skills_Based_Routing_Enabled"
+      }
+      faultConnector = {
+        targetReference = "Invokable_action_failed"
+      }
+      flowTransactionModel = "CurrentTransaction"
+      nameSegment = "swarmingCollaborationToolSettings"
+      outputParameters = [
+        {
+          assignToReference = "CollaborationToolAppId"
+          name = "collaborationAppId"
+        },
+        {
+          assignToReference = "OrgValueCollaborationTool"
+          name = "collaborationTool"
+        },
+        {
+          assignToReference = "Is_Omni_Enabled"
+          name = "isOmniSkillsRoutingEnabled"
+        },
+      ]
+      versionSegment = 1
+    },
+    {
+      name = "Get_Available_Swarm_Object"
+      label = "Get Available Swarm Object"
+      locationX = 545
+      locationY = 950
+      actionName = "getAvailableSwarmObject"
+      actionType = "getAvailableSwarmObject"
+      connector = {
+        targetReference = "Label_Assignment"
+      }
+      flowTransactionModel = "CurrentTransaction"
+      inputParameters = [
+        {
+          name = "recordId"
+          value = {
+            elementReference = "recordId"
+          }
+        },
+      ]
+      nameSegment = "getAvailableSwarmObject"
+      outputParameters = [
+        {
+          assignToReference = "channelName"
+          name = "channelName"
+        },
+        {
+          assignToReference = "sObjectType"
+          name = "objectApiName"
+        },
+        {
+          assignToReference = "recordNumber"
+          name = "recordNameOrNumber"
+        },
+        {
+          assignToReference = "recordOwner"
+          name = "recordOwnerId"
+        },
+      ]
+      versionSegment = 1
+    },
+  ]
+  apiVersion = 56
+  assignments = [
+    {
+      name = "Label_Assignment"
+      label = "Label Assignment"
+      locationX = 545
+      locationY = 1070
+      assignmentItems = [
+        {
+          assignToReference = "LabelForSwarmMemberName"
+          operator = "Assign"
+          value = {
+            elementReference = "SwarmMembersName"
+          }
+        },
+        {
+          assignToReference = "LabelForSwarmName"
+          operator = "Assign"
+          value = {
+            elementReference = "SwarmName"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Get_related_Swarm_Records"
+      }
+    },
+  ]
+  decisions = [
+    {
+      name = "Check_if_Service_channel_Or_Skill_Empty"
+      label = "Check if Service channel Or Skill Empty"
+      locationX = 391
+      locationY = 518
+      defaultConnector = {
+        targetReference = "Get_Available_Swarm_Object"
+      }
+      defaultConnectorLabel = "Non Empty Service channel And Skill"
+      rules = [
+        {
+          name = "Empty_Service_channel_Or_Skill"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Service_Channel_Or_Skill_Empty.IsSkillOrServiceChannelEmpty"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          label = "Empty Service channel Or Skill"
+        },
+      ]
+    },
+    {
+      name = "Collaboration_tool"
+      label = "Collaboration tool"
+      locationX = 336
+      locationY = 1550
+      defaultConnector = {
+        targetReference = "Update_Swarm"
+      }
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Slack"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Get_Swarm.CollaborationTool"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Slack"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Is_swarm_dedicate_channel"
+          }
+          label = "Slack"
+        },
+      ]
+    },
+    {
+      name = "If_able_to_run_flow"
+      label = "If able to run flow"
+      locationX = 545
+      locationY = 1430
+      defaultConnector = {
+        targetReference = "Not_able_to_run"
+      }
+      defaultConnectorLabel = "Not able to run add to swarm flow"
+      rules = [
+        {
+          name = "Able_to_run_add_to_swarm_flow"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Get_Swarm.Id"
+              operator = "IsNull"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Collaboration_tool"
+          }
+          label = "Able to run add to swarm flow"
+        },
+      ]
+    },
+    {
+      name = "Is_Skills_Based_Routing_Enabled"
+      label = "Is Skills Based Routing Enabled"
+      locationX = 545
+      locationY = 278
+      defaultConnector = {
+        targetReference = "Get_Available_Swarm_Object"
+      }
+      defaultConnectorLabel = "Skills Based Routing Disabled"
+      rules = [
+        {
+          name = "Skills_Based_Routing_Enabled"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Is_Omni_Enabled"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+            {
+              leftValueReference = "$User.Department"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Customer Service"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Service_Channel_Or_Skill_Empty"
+          }
+          label = "Skills Based Routing Enabled"
+        },
+      ]
+    },
+    {
+      description = "Check if swarm record is dedicated channel"
+      name = "Is_swarm_dedicate_channel"
+      label = "Is swarm dedicated channel"
+      locationX = 94
+      locationY = 1670
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "Swarm_is_dedicated_channel"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Get_Swarm.IsDedicatedChannel"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = true
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Update_Swarm"
+          }
+          label = "Swarm is dedicated channel"
+        },
+        {
+          name = "Swarm_is_not_dedicated_channel"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "Get_Swarm.IsDedicatedChannel"
+              operator = "EqualTo"
+              rightValue = {
+                booleanValue = false
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Add_to_swarm_in_slack"
+          }
+          label = "Swarm is not dedicated channel"
+        },
+      ]
+    },
+  ]
+  environments = "Default"
+  formulas = [
+    {
+      name = "TruncateName"
+      dataType = "String"
+      expression = "IF (LEN({!SwarmMemberName}) < 256, {!SwarmMemberName}, TRIM(LEFT({!SwarmMemberName}, 252) & \"...\"))"
+    },
+    {
+      name = "TruncateSwarmMemberName"
+      dataType = "String"
+      expression = "IF (LEN({!LabelForSwarmMemberName}) < 256, {!LabelForSwarmMemberName}, TRIM(LEFT({!LabelForSwarmMemberName}, 252) & \"...\"))"
+    },
+  ]
+  interviewLabel = "Add User to Swarm {!$Flow.CurrentDateTime}"
+  label = "Add User to Swarm"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "Flow"
+  recordLookups = [
+    {
+      name = "Get_related_Swarm_Records"
+      label = "Get related Swarm Records"
+      locationX = 545
+      locationY = 1190
+      assignNullValuesIfNoRecordsFound = false
+      connector = {
+        targetReference = "Select_Swarm_record"
+      }
+      filterLogic = "and"
+      filters = [
+        {
+          field = salesforce.Swarm.field.RelatedRecordId
+          operator = "EqualTo"
+          value = {
+            elementReference = "recordId"
+          }
+        },
+        {
+          field = salesforce.Swarm.field.Status
+          operator = "NotEqualTo"
+          value = {
+            stringValue = "Closed"
+          }
+        },
+      ]
+      object = salesforce.Swarm
+      outputReference = "relatedSwarmRecords"
+      queriedFields = [
+        salesforce.Swarm.field.Id,
+        salesforce.Swarm.field.RelatedRecordId,
+        salesforce.Swarm.field.Status,
+        salesforce.Swarm.field.CollaborationTool,
+        salesforce.Swarm.field.CollaborationRoomId,
+        salesforce.Swarm.field.StartedDateTime,
+        salesforce.Swarm.field.EndedDateTime,
+        salesforce.Swarm.field.CollaborationUrl,
+        salesforce.Swarm.field.IsDedicatedChannel,
+        salesforce.Swarm.field.UsageType,
+        salesforce.Swarm.field.HelpNeeded,
+        salesforce.Swarm.field.MessageKey,
+        salesforce.Swarm.field.Name,
+        salesforce.Swarm.field.CreatedDate,
+      ]
+      sortField = salesforce.Swarm.field.CreatedDate
+      sortOrder = "Asc"
+    },
+  ]
+  recordUpdates = [
+    {
+      name = "Update_Swarm"
+      label = "Update Swarm"
+      locationX = 336
+      locationY = 2222
+      connector = {
+        targetReference = "Member_Selection_Swarm_Flow"
+      }
+      filterLogic = "and"
+      filters = [
+        {
+          field = salesforce.Swarm.field.Id
+          operator = "EqualTo"
+          value = {
+            elementReference = "Get_Swarm.Id"
+          }
+        },
+        {
+          field = salesforce.Swarm.field.Status
+          operator = "EqualTo"
+          value = {
+            stringValue = "New"
+          }
+        },
+      ]
+      inputAssignments = [
+        {
+          field = salesforce.Swarm.field.Status
+          value = {
+            stringValue = "In Progress"
+          }
+        },
+      ]
+      object = salesforce.Swarm
+    },
+  ]
+  screens = [
+    {
+      name = "Add_to_swarm_in_slack"
+      label = "Add to swarm in slack"
+      locationX = 50
+      locationY = 1790
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      fields = [
+        {
+          name = "AddToSwarmInSlack"
+          fieldText = "<p>This Swarm is in a thread of an existing Channel and Channel members should be managed within Slack app</p>"
+          fieldType = "DisplayText"
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Finish_Add_To_Swarming_Flow"
+      label = "Finish Add To Swarming Flow"
+      locationX = 336
+      locationY = 2462
+      allowBack = false
+      allowFinish = true
+      allowPause = true
+      fields = [
+        {
+          name = "FinishText"
+          fieldText = "<p><span style=\"background-color: rgb(255, 255, 255);\">The Add To Swarm flow is complete.</span></p>"
+          fieldType = "DisplayText"
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      name = "Invokable_action_failed"
+      label = "Invokable action failed"
+      locationX = 1018
+      locationY = 278
+      allowBack = true
+      allowFinish = true
+      allowPause = true
+      fields = [
+        {
+          name = "Label_CaseSwarmingFlows_InvocableActionFailedError"
+          dataType = "String"
+          defaultValue = {
+            elementReference = "$Flow.FaultMessage"
+          }
+          fieldText = "Invocable Action Failed Error"
+          fieldType = "InputField"
+          isRequired = false
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+    {
+      description = "Not able to run the flow."
+      name = "Not_able_to_run"
+      label = "Not able to run"
+      locationX = 754
+      locationY = 1550
+      allowBack = false
+      allowFinish = true
+      allowPause = true
+      fields = [
+        {
+          name = "NotAbleToRun"
+          fieldText = "<p>The Swarm record associated with this object is either closed or nonexistent. This flow can run only with an open Swarm record.</p>"
+          fieldType = "DisplayText"
+        },
+      ]
+      showFooter = true
+      showHeader = true
+    },
+  ]
+  sourceTemplate = "case_swarming__Add_To_Swarm"
+  start = {
+    locationX = 419
+    locationY = 0
+    connector = {
+      targetReference = "Check_Slack_integration_enablement"
+    }
+  }
+  status = "Active"
+  subflows = [
+    {
+      name = "Member_Selection_Swarm_Flow"
+      label = "Member Selection Swarm Flow"
+      locationX = 336
+      locationY = 2342
+      connector = {
+        targetReference = "Finish_Add_To_Swarming_Flow"
+      }
+      flowName = "case_swarming__Member_Selection"
+      inputAssignments = [
+        {
+          name = "CollaborationRoomId"
+          value = {
+            elementReference = "Get_Swarm.CollaborationRoomId"
+          }
+        },
+        {
+          name = "CollaborationToolAppId"
+          value = {
+            elementReference = "CollaborationToolAppId"
+          }
+        },
+        {
+          name = "Is_Omni_Enabled"
+          value = {
+            elementReference = "Is_Omni_Enabled"
+          }
+        },
+        {
+          name = "LabelForSwarmMemberName"
+          value = {
+            elementReference = "LabelForSwarmMemberName"
+          }
+        },
+        {
+          name = "LabelForSwarmName"
+          value = {
+            elementReference = "LabelForSwarmName"
+          }
+        },
+        {
+          name = "SwarmMemberHelpNeeded"
+          value = {
+            elementReference = "Get_Swarm.HelpNeeded"
+          }
+        },
+        {
+          name = "OrgValueCollaborationTool"
+          value = {
+            elementReference = "OrgValueCollaborationTool"
+          }
+        },
+        {
+          name = "recordId"
+          value = {
+            elementReference = "recordId"
+          }
+        },
+        {
+          name = "recordOwner"
+          value = {
+            elementReference = "recordOwner"
+          }
+        },
+        {
+          name = "SelectedChannelId"
+          value = {
+            elementReference = "Get_Swarm.CollaborationRoom.PlatformKey"
+          }
+        },
+        {
+          name = "SelectedSwarmId"
+          value = {
+            elementReference = "Get_Swarm.Id"
+          }
+        },
+        {
+          name = "SelectedWorkspaceId"
+          value = {
+            elementReference = "Get_Swarm.CollaborationRoom.TeamKey"
+          }
+        },
+        {
+          name = "serviceChannelId"
+          value = {
+            elementReference = "Service_Channel_Or_Skill_Empty.serviceChannelId"
+          }
+        },
+      ]
+      storeOutputAutomatically = true
+    },
+    {
+      name = "Select_Swarm_record"
+      label = "Select Swarm record"
+      locationX = 545
+      locationY = 1310
+      connector = {
+        targetReference = "If_able_to_run_flow"
+      }
+      flowName = "case_swarming__Select_Swarm"
+      inputAssignments = [
+        {
+          name = "MultiSwarmTagLine"
+          value = {
+            elementReference = "MultiSwarmTagLine"
+          }
+        },
+        {
+          name = "recordId"
+          value = {
+            elementReference = "recordId"
+          }
+        },
+        {
+          name = "relatedSwarmRecords"
+          value = {
+            elementReference = "relatedSwarmRecords"
+          }
+        },
+      ]
+      outputAssignments = {
+        assignToReference = "Get_Swarm"
+        name = "Get_Swarm"
+      }
+    },
+    {
+      name = "Service_Channel_Or_Skill_Empty"
+      label = "Service Channel Or Skill Empty"
+      locationX = 391
+      locationY = 398
+      connector = {
+        targetReference = "Check_if_Service_channel_Or_Skill_Empty"
+      }
+      flowName = "case_swarming__Omni_Entities_Validator"
+      inputAssignments = [
+        {
+          name = "Is_Omni_Enabled"
+          value = {
+            elementReference = "Is_Omni_Enabled"
+          }
+        },
+      ]
+      storeOutputAutomatically = true
+    },
+  ]
+  textTemplates = [
+    {
+      name = "MultiSwarmTagLine"
+      isViewedAsPlainText = false
+      text = "This record has more than one related swarm. Choose a swarm to add members to."
+    },
+    {
+      name = "SlackMessageLabel"
+      isViewedAsPlainText = true
+      text = "Welcome To Channel"
+    },
+    {
+      name = "SwarmMembersName"
+      isViewedAsPlainText = true
+      text = "Swarm Member For {!sObjectType} #{!recordNumber}"
+    },
+    {
+      name = "SwarmName"
+      isViewedAsPlainText = true
+      text = "Swarm For {!sObjectType} #{!recordNumber}"
+    },
+  ]
+  variables = [
+    {
+      name = "channelName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "CollaborationToolAppId"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "Get_Swarm"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.Swarm
+    },
+    {
+      name = "Is_Omni_Enabled"
+      dataType = "Boolean"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "LabelForSwarmMemberName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "LabelForSwarmName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "OrgValueCollaborationTool"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "recordId"
+      dataType = "String"
+      isCollection = false
+      isInput = true
+      isOutput = false
+    },
+    {
+      name = "recordNumber"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "recordOwner"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "relatedSwarmRecords"
+      dataType = "SObject"
+      isCollection = true
+      isInput = false
+      isOutput = true
+      objectType = salesforce.Swarm
+    },
+    {
+      name = "sObjectType"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+    {
+      name = "SwarmMemberName"
+      dataType = "String"
+      isCollection = false
+      isInput = false
+      isOutput = false
+    },
+  ]
+  _alias = "Add User to Swarm"
+}

@@ -1,0 +1,27 @@
+salesforce.LightningPage Custom_Record_Account_Page {
+  flexiPageRegions = [
+    {
+      name = "header"
+      type = "Region"
+    },
+    {
+      name = "main"
+      type = "Region"
+    },
+  ]
+  masterLabel = "Custom Record Account Page"
+  sobjectType = "Account"
+  template = {
+    name = "flexipage:recordHomeSimpleViewTemplate"
+    properties = {
+      name = "enablePageActionConfig"
+      value = "false"
+    }
+  }
+  type = "RecordPage"
+  fullName = "Custom_Record_Account_Page"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Custom_Record_Account_Page"
+}

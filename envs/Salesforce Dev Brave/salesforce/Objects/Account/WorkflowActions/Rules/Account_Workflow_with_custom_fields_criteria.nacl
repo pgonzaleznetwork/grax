@@ -1,0 +1,31 @@
+salesforce.WorkflowRule Account_Workflow_with_custom_fields_criteria@vssss {
+  fullName = "Account.Workflow with custom fields criteria"
+  actions = [
+    {
+      name = salesforce.WorkflowAlert.instance.Account_Email_alert_linked_to_workflow@vuuuu
+      type = "Alert"
+    },
+    {
+      name = salesforce.WorkflowTask.instance.Account_You_have_a_new_task@vuuuu
+      type = "Task"
+    },
+  ]
+  active = false
+  criteriaItems = [
+    {
+      field = salesforce.Account.field.Name
+      operation = "equals"
+      value = "Salto"
+    },
+    {
+      field = salesforce.Account.field.Gerry__c
+      operation = "equals"
+      value = "True"
+    },
+  ]
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Workflow with custom fields criteria"
+}

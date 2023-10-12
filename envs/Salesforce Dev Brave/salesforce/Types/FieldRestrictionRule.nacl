@@ -1,0 +1,104 @@
+type salesforce.FieldRestrictionRule {
+  annotations {
+    serviceid metadataType {
+    }
+    boolean hasMetaFile {
+    }
+    string folderType {
+    }
+    string folderContentType {
+    }
+    string suffix {
+    }
+    string dirName {
+    }
+  }
+  serviceid fullName {
+  }
+  boolean active {
+  }
+  string classification {
+  }
+  string classificationType {
+    _restriction = {
+      enforce_value = false
+      values = [
+        "ComplianceCategory",
+        "FieldSet",
+      ]
+    }
+  }
+  string description {
+  }
+  string enforcementType {
+    _restriction = {
+      enforce_value = false
+      values = [
+        "D360_Restrict",
+        "FieldRestrict",
+        "Restrict",
+        "Scoping",
+      ]
+    }
+  }
+  string masterLabel {
+  }
+  string recordFilter {
+  }
+  string targetEntity {
+    _restriction = {
+      enforce_value = false
+      values = [
+        "Account",
+        "BoatReview__c",
+        "BoatType__c",
+        "Boat__c",
+        "Case",
+        "Center__c",
+        "Child__c",
+        "CodeBuilder__SessionData__c",
+        "CodeBuilder__Workspace__c",
+        "Contact",
+        "Contract",
+        "Custom_Object__c",
+        "Event",
+        "Lead",
+        "NewObject__c",
+        "Opportunity",
+        "Parent__c",
+        "SRM_CRM_Sprint__c",
+        "SRM_Connected_Org__c",
+        "SRM_Development_Task__c",
+        "SRM_Jira_Ticket__c",
+        "SRM_Metadata__c",
+        "Session__c",
+        "Task",
+        "User",
+        "Zendesk_Ticket__c",
+        "plusapp__Metadata_Alert__c",
+        "plusapp__Metadata_FieldTrip__c",
+        "plusapp__Metadata_Junction__c",
+        "plusapp__Metadata_Tags__c",
+        "plusapp__Metadata_Ticket__c",
+        "plusapp__Metadata_User__c",
+        "plusapp__Metadata__c",
+        "sonar__Analysis_Object__c",
+        "sonar__Analysis__c",
+        "sonar__Field_Details__c",
+        "sonar__Insight__c",
+        "sonar__SObject__c",
+      ]
+    }
+  }
+  string userCriteria {
+  }
+  number version {
+  }
+  string internalId {
+    _hidden_value = true
+    localOnly = true
+  }
+  suffix = "rule"
+  dirName = "fieldRestrictionRules"
+  metadataType = "FieldRestrictionRule"
+}

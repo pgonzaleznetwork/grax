@@ -1,0 +1,7 @@
+salesforce.ApexClass ClassUsingFlow {
+  apiVersion = 54
+  status = "Active"
+  fullName = "ClassUsingFlow"
+  content = file("salesforce/Records/ApexClass/ClassUsingFlow.cls")
+  _alias = "ClassUsingFlow"
+}

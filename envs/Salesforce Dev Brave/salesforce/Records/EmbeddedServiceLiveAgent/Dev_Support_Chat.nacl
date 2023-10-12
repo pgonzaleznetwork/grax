@@ -1,0 +1,34 @@
+salesforce.EmbeddedServiceLiveAgent Dev_Support_Chat {
+  fullName = "Dev_Support_Chat"
+  embeddedServiceConfig = salesforce.EmbeddedServiceConfig.instance.Dev_Support_Chat
+  embeddedServiceQuickActions = [
+    {
+      embeddedServiceLiveAgent = salesforce.EmbeddedServiceLiveAgent.instance.Dev_Support_Chat
+      order = 1
+      quickActionDefinition = salesforce.QuickAction.instance.Snapins_Case_OfflineCaseQuickAction_08h3h000000L01w_1665924690483
+      quickActionType = "OfflineCase"
+    },
+    {
+      embeddedServiceLiveAgent = salesforce.EmbeddedServiceLiveAgent.instance.Dev_Support_Chat
+      order = 1
+      quickActionDefinition = salesforce.QuickAction.instance.Snapins_Contact_PrechatQuickAction_08h3h000000L01w_1665924691504
+      quickActionType = "Prechat"
+    },
+    {
+      embeddedServiceLiveAgent = salesforce.EmbeddedServiceLiveAgent.instance.Dev_Support_Chat
+      order = 2
+      quickActionDefinition = salesforce.QuickAction.instance.Snapins_Case_PrechatQuickAction_08h3h000000L01w_1665924691538
+      quickActionType = "Prechat"
+    },
+  ]
+  enabled = true
+  fontSize = "Medium"
+  isOfflineCaseEnabled = true
+  isQueuePositionEnabled = false
+  liveChatButton = salesforce.LiveChatButton.instance.Dev_Support_Chat
+  liveChatDeployment = salesforce.LiveChatDeployment.instance.live_agent_setup_flow
+  masterLabel = "Dev Support (Chat)"
+  prechatEnabled = true
+  scenario = "Service"
+  _alias = "Dev_Support_Chat"
+}

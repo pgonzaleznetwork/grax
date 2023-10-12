@@ -1,0 +1,19 @@
+type salesforce.SRM_API_Metadata_Client_Setting__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "SRM_API_Metadata_Client_Setting__mdt"
+  metadataType = "CustomMetadata"
+  label = "SRM API Metadata Client Setting"
+  pluralLabel = "SRM API Metadata Clients Settings"
+  _alias = "SRM API Metadata Client Setting"
+}

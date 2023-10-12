@@ -1,0 +1,18 @@
+salesforce.WorkflowOutboundMessage Account_OB_message@vu {
+  fullName = "Account.OB_message"
+  apiVersion = 54
+  endpointUrl = "https://brave-raccoon-mm7crl-dev-ed.my.salesforce.com/04k/e?px2=01Q3h000000LceH"
+  fields = [
+    salesforce.Account.field.AccountSource,
+    salesforce.Account.field.Id,
+  ]
+  includeSessionId = true
+  integrationUser = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  name = "OB message dif"
+  protected = false
+  useDeadLetterQueue = false
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.OB_message"
+}

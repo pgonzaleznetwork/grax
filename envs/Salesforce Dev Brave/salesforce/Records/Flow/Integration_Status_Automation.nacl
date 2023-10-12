@@ -1,0 +1,189 @@
+salesforce.Flow Integration_Status_Automation {
+  fullName = "Integration_Status_Automation"
+  actionCalls = [
+    {
+      name = "Email_Account_Owner"
+      label = "Email Account Owner"
+      locationX = 578
+      locationY = 455
+      actionName = salesforce.WorkflowAlert.instance.Account_Email_Account_Owner@vuu
+      actionType = "emailAlert"
+      flowTransactionModel = "CurrentTransaction"
+      inputParameters = [
+        {
+          name = "SObjectRowId"
+          value = {
+            elementReference = "$Record.Id"
+          }
+        },
+      ]
+      nameSegment = "Account.Email_Account_Owner"
+      versionSegment = 1
+    },
+  ]
+  apiVersion = 55
+  assignments = [
+    {
+      name = "Assign_account_name"
+      label = "Assign account name"
+      locationX = 50
+      locationY = 455
+      assignmentItems = [
+        {
+          assignToReference = "$Record.Name"
+          operator = "Assign"
+          value = {
+            elementReference = "AccountnamewithIntegrationStatus"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Commit_changes"
+      }
+    },
+    {
+      name = "Assign_Oracle_Id"
+      label = "Assign Oracle Id"
+      locationX = 314
+      locationY = 455
+      assignmentItems = [
+        {
+          assignToReference = "$Record.Oracle_Id__c"
+          operator = "Assign"
+          value = {
+            stringValue = "ORA1234"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Commit_changes"
+      }
+    },
+  ]
+  decisions = [
+    {
+      name = "What_is_the_Integration_Status"
+      label = "What is the Integration Status?"
+      locationX = 446
+      locationY = 335
+      defaultConnectorLabel = "Default Outcome"
+      rules = [
+        {
+          name = "New"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "$Record.Integration_Status__c"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "New"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Assign_account_name"
+          }
+          doesRequireRecordChangedToMeetCriteria = true
+          label = "New"
+        },
+        {
+          name = "Established"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "$Record.Integration_Status__c"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Connection Established"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Assign_Oracle_Id"
+          }
+          doesRequireRecordChangedToMeetCriteria = true
+          label = "Established"
+        },
+        {
+          name = "Disconnected"
+          conditionLogic = "and"
+          conditions = [
+            {
+              leftValueReference = "$Record.Integration_Status__c"
+              operator = "EqualTo"
+              rightValue = {
+                stringValue = "Disconnected"
+              }
+            },
+          ]
+          connector = {
+            targetReference = "Email_Account_Owner"
+          }
+          doesRequireRecordChangedToMeetCriteria = true
+          label = "Disconnected"
+        },
+      ]
+    },
+  ]
+  environments = "Default"
+  formulas = [
+    {
+      name = "AccountnamewithIntegrationStatus"
+      dataType = "String"
+      expression = "$Record.Name + \" \" +TEXT($Record.Integration_Status__c)"
+    },
+  ]
+  interviewLabel = "Integration Status Automation {!$Flow.CurrentDateTime}"
+  label = "Integration Status Automation"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  recordUpdates = [
+    {
+      name = "Commit_changes"
+      label = "Commit changes"
+      locationX = 446
+      locationY = 791
+      inputReference = "$Record"
+    },
+  ]
+  start = {
+    locationX = 320
+    locationY = 0
+    connector = {
+      targetReference = "What_is_the_Integration_Status"
+    }
+    filterFormula = "ISCHANGED({!$Record.Integration_Status__c})"
+    object = salesforce.Account
+    recordTriggerType = "CreateAndUpdate"
+    triggerType = "RecordAfterSave"
+  }
+  status = "Draft"
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.Integration_Status__c
+    },
+    {
+      reference = salesforce.Account.field.Oracle_Id__c
+    },
+  ]
+  _alias = "Integration Status Automation"
+}

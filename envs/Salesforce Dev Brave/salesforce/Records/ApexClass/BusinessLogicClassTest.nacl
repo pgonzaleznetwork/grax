@@ -1,0 +1,12 @@
+salesforce.ApexClass BusinessLogicClassTest {
+  apiVersion = 55
+  status = "Active"
+  fullName = "BusinessLogicClassTest"
+  content = file("salesforce/Records/ApexClass/BusinessLogicClassTest.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.BusinessLogicClass
+    },
+  ]
+  _alias = "BusinessLogicClassTest"
+}

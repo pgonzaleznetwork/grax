@@ -1,0 +1,12 @@
+salesforce.ApexTrigger OnOpportunity {
+  apiVersion = 48
+  status = "Inactive"
+  fullName = "OnOpportunity"
+  content = file("salesforce/Records/ApexTrigger/OnOpportunity.trigger")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Opportunity
+    },
+  ]
+  _alias = "OnOpportunity"
+}

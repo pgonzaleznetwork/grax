@@ -1,0 +1,27 @@
+salesforce.LightningComponentBundle easyCrudFieldPermissions {
+  apiVersion = 51
+  isExposed = false
+  fullName = "easyCrudFieldPermissions"
+  lwcResources = {
+    lwcResource = {
+      easyCrudFieldPermissions_html@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudFieldPermissions/easyCrudFieldPermissions.html")
+        filePath = "lwc/easyCrudFieldPermissions/easyCrudFieldPermissions.html"
+      }
+      easyCrudFieldPermissions_js@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudFieldPermissions/easyCrudFieldPermissions.js")
+        filePath = "lwc/easyCrudFieldPermissions/easyCrudFieldPermissions.js"
+      }
+      easyCrudFieldPermissions_css@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudFieldPermissions/easyCrudFieldPermissions.css")
+        filePath = "lwc/easyCrudFieldPermissions/easyCrudFieldPermissions.css"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.EasyCrudAndFls
+    },
+  ]
+  _alias = "easyCrudFieldPermissions"
+}

@@ -1,0 +1,104 @@
+type salesforce.Contact {
+  salesforce.FormulaText Age__c {
+    apiName = "Contact.Age__c"
+    externalId = false
+    formula = "TEXT(YEAR(TODAY() ) - YEAR(  Birthdate  ))"
+    formulaTreatBlanksAs = "BlankAsZero"
+    label = "Age"
+    unique = false
+    createable = false
+    updateable = false
+    caseSensitive = false
+    queryable = true
+    _hidden_value = true
+    _generated_dependencies = [
+      {
+        reference = salesforce.Contact.field.Birthdate
+      },
+    ]
+  }
+  salesforce.Text Languages__c {
+    apiName = "Contact.Languages__c"
+    externalId = false
+    label = "Languages"
+    length = 100
+    unique = false
+    createable = true
+    updateable = true
+    caseSensitive = false
+    queryable = true
+  }
+  salesforce.Picklist Level__c {
+    apiName = "Contact.Level__c"
+    externalId = false
+    label = "Level"
+    valueSet = [
+      {
+        fullName = "Secondary"
+        default = false
+        label = "Secondary"
+      },
+      {
+        fullName = "Tertiary"
+        default = false
+        label = "Tertiary"
+      },
+      {
+        fullName = "Primary"
+        default = false
+        label = "Primary"
+      },
+    ]
+    sorted = false
+    restricted = false
+    createable = true
+    updateable = true
+    queryable = true
+  }
+  salesforce.Lookup OtherAccountId__c {
+    apiName = "Contact.OtherAccountId__c"
+    deleteConstraint = "SetNull"
+    externalId = false
+    label = "OtherAccountId"
+    referenceTo = [
+      salesforce.Account,
+    ]
+    relationshipLabel = "Contacts"
+    relationshipName = "Contacts"
+    createable = true
+    updateable = true
+    queryable = true
+  }
+  salesforce.Picklist Support_Status__c {
+    apiName = "Contact.Support_Status__c"
+    externalId = false
+    label = "Support Status"
+    valueSet = [
+      {
+        fullName = "Activate"
+        default = false
+        label = "Activate"
+      },
+      {
+        fullName = "Pending approval"
+        default = false
+        label = "Pending approval"
+      },
+      {
+        fullName = "Deactivated"
+        default = false
+        label = "Deactivated"
+      },
+      {
+        fullName = "Pending Finance Approval"
+        default = false
+        label = "Pending Finance Approval"
+      },
+    ]
+    sorted = false
+    restricted = true
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

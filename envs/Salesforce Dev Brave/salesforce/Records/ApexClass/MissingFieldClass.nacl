@@ -1,0 +1,15 @@
+salesforce.ApexClass MissingFieldClass {
+  apiVersion = 56
+  status = "Active"
+  fullName = "MissingFieldClass"
+  content = file("salesforce/Records/ApexClass/MissingFieldClass.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account
+    },
+    {
+      reference = salesforce.Account.field.Missing_field__c
+    },
+  ]
+  _alias = "MissingFieldClass"
+}

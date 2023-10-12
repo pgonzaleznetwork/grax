@@ -1,0 +1,8 @@
+salesforce.Field_referencing__mdt Field_referencing_my_metadata@uvu {
+  label = "my metadata"
+  protected = false
+  fullName = "Field_referencing.my_metadata"
+  Related_Field__c = "CustomerPriority__c"
+  Related_Object__c = "Account"
+  _alias = "my metadata"
+}

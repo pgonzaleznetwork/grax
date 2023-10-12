@@ -1,0 +1,70 @@
+salesforce.Flow NetSuite_Flow {
+  fullName = "NetSuite_Flow"
+  apiVersion = 55
+  assignments = [
+    {
+      name = "Assign_NetSuite_Id"
+      label = "Assign NetSuite Id"
+      locationX = 176
+      locationY = 311
+      assignmentItems = [
+        {
+          assignToReference = "$Record.NetSuite_Id__c"
+          operator = "Assign"
+          value = {
+            stringValue = "12345"
+          }
+        },
+      ]
+    },
+  ]
+  environments = "Default"
+  interviewLabel = "NetSuite Flow {!$Flow.CurrentDateTime}"
+  label = "NetSuite Flow"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "Assign_NetSuite_Id"
+    }
+    filterLogic = "and"
+    filters = {
+      field = salesforce.Account.field.Active__c
+      operator = "EqualTo"
+      value = {
+        booleanValue = true
+      }
+    }
+    object = salesforce.Account
+    recordTriggerType = "Create"
+    triggerType = "RecordBeforeSave"
+  }
+  status = "Active"
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.NetSuite_Id__c
+    },
+  ]
+  _alias = "NetSuite Flow"
+}

@@ -1,0 +1,7 @@
+salesforce.Trigger_Handler__mdt Trigger_Handler_another_one@uvu {
+  label = "another one"
+  protected = false
+  fullName = "Trigger_Handler.another_one"
+  Class_Name__c = "triggerdmlsupport"
+  _alias = "another one"
+}

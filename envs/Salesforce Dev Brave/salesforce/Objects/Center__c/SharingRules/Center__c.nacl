@@ -1,0 +1,7 @@
+salesforce.SharingRules Center__c {
+  fullName = "Center__c"
+  _parent = [
+    salesforce.Center__c,
+  ]
+  _alias = "Center__c"
+}

@@ -1,0 +1,18 @@
+type salesforce.SRM_Package_XML_Setting__mdt {
+  salesforce.Text Api_Version__c {
+    apiName = "SRM_Package_XML_Setting__mdt.Api_Version__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Api Version"
+    length = 10
+    unique = false
+  }
+  salesforce.Text XML_Namespace__c {
+    apiName = "SRM_Package_XML_Setting__mdt.XML_Namespace__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "XML Namespace"
+    length = 250
+    unique = false
+  }
+}

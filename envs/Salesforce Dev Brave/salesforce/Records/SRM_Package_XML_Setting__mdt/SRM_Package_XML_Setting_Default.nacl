@@ -1,0 +1,8 @@
+salesforce.SRM_Package_XML_Setting__mdt SRM_Package_XML_Setting_Default@uuuv {
+  label = "Default"
+  protected = false
+  fullName = "SRM_Package_XML_Setting.Default"
+  Api_Version__c = "47"
+  XML_Namespace__c = "http://soap.sforce.com/2006/04/metadata"
+  _alias = "Default"
+}

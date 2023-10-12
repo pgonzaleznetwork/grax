@@ -1,0 +1,38 @@
+salesforce.LightningComponentBundle easyCrudAllObjects {
+  apiVersion = 51
+  isExposed = true
+  targets = {
+    target = [
+      "lightning__Tab",
+    ]
+  }
+  fullName = "easyCrudAllObjects"
+  lwcResources = {
+    lwcResource = {
+      easyCrudAllObjects_js@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudAllObjects/easyCrudAllObjects.js")
+        filePath = "lwc/easyCrudAllObjects/easyCrudAllObjects.js"
+      }
+      easyCrudAllObjects_html@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudAllObjects/easyCrudAllObjects.html")
+        filePath = "lwc/easyCrudAllObjects/easyCrudAllObjects.html"
+      }
+      easyCrudAllObjects_css@v = {
+        source = file("salesforce/Records/LightningComponentBundle/easyCrudAllObjects/easyCrudAllObjects.css")
+        filePath = "lwc/easyCrudAllObjects/easyCrudAllObjects.css"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.EasyCrudAndFls
+    },
+    {
+      reference = salesforce.LightningComponentBundle.instance.easyCrudFieldPermissions
+    },
+    {
+      reference = salesforce.LightningComponentBundle.instance.easyCrudObjectPermissions
+    },
+  ]
+  _alias = "easyCrudAllObjects"
+}

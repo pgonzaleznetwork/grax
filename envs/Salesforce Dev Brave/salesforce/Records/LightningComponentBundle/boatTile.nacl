@@ -1,0 +1,22 @@
+salesforce.LightningComponentBundle boatTile {
+  apiVersion = 48
+  isExposed = false
+  fullName = "boatTile"
+  lwcResources = {
+    lwcResource = {
+      boatTile_html@v = {
+        source = file("salesforce/Records/LightningComponentBundle/boatTile/boatTile.html")
+        filePath = "lwc/boatTile/boatTile.html"
+      }
+      boatTile_js@v = {
+        source = file("salesforce/Records/LightningComponentBundle/boatTile/boatTile.js")
+        filePath = "lwc/boatTile/boatTile.js"
+      }
+      boatTile_css@v = {
+        source = file("salesforce/Records/LightningComponentBundle/boatTile/boatTile.css")
+        filePath = "lwc/boatTile/boatTile.css"
+      }
+    }
+  }
+  _alias = "boatTile"
+}

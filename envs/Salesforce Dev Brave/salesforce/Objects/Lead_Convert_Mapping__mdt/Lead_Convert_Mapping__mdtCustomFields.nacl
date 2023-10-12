@@ -1,0 +1,18 @@
+type salesforce.Lead_Convert_Mapping__mdt {
+  salesforce.Text Source_Field__c {
+    apiName = "Lead_Convert_Mapping__mdt.Source_Field__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Source Field"
+    length = 250
+    unique = false
+  }
+  salesforce.Text Target_Field__c {
+    apiName = "Lead_Convert_Mapping__mdt.Target_Field__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Target Field"
+    length = 250
+    unique = false
+  }
+}

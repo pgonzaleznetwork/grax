@@ -1,0 +1,11 @@
+salesforce.SRM_API_Metadata_Client_Setting__mdt SRM_API_Metadata_Client_Setting_Default@uuuuv {
+  label = "Default"
+  protected = false
+  fullName = "SRM_API_Metadata_Client_Setting.Default"
+  Additional_Metadata_Types__c = "GlobalPicklist,WorkflowTask,WorkflowRule,WorkflowAlert,WorkflowOutboundMessage,WorkflowFieldUpdate,CustomField,ValidationRule,WebLink,RecordType,ListView,BusinessProcess"
+  Api_Version__c = "47"
+  Describe_Metadata_Exception__c = "An error occurred while issuing a describeMetadata() call from the Metadata API:"
+  Endpoint__c = "/services/Soap/m/"
+  List_Metadata_Exception__c = "An error occurred while issuing a listMetadata() call from the Metadata API:"
+  _alias = "Default"
+}

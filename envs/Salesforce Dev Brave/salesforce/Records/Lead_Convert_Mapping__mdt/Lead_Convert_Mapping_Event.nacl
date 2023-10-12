@@ -1,0 +1,8 @@
+salesforce.Lead_Convert_Mapping__mdt Lead_Convert_Mapping_Event@uuv {
+  label = "Event"
+  protected = false
+  fullName = "Lead_Convert_Mapping.Event"
+  Source_Field__c = "Lead_Event__c"
+  Target_Field__c = "Event__c"
+  _alias = "Event"
+}

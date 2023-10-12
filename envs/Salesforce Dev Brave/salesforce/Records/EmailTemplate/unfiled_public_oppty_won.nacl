@@ -1,0 +1,12 @@
+salesforce.EmailTemplate unfiled_public_oppty_won@zcdu {
+  available = true
+  encodingKey = "ISO-8859-1"
+  name = "oppty won"
+  style = "none"
+  subject = "oppty won"
+  type = "text"
+  uiType = "Aloha"
+  fullName = "unfiled$public/oppty_won"
+  content = file("salesforce/Records/EmailTemplate/unfiled$public/oppty_won/oppty_won.email")
+  _alias = "unfiled$public/oppty_won"
+}

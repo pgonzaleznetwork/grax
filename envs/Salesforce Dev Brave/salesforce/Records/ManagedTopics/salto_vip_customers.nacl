@@ -1,0 +1,4 @@
+salesforce.ManagedTopics salto_vip_customers@b {
+  fullName = "salto-vip-customers"
+  _alias = "salto-vip-customers"
+}

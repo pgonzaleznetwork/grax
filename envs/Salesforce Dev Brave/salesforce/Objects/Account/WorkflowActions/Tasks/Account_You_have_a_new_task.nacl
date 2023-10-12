@@ -1,0 +1,16 @@
+salesforce.WorkflowTask Account_You_have_a_new_task@vuuuu {
+  fullName = "Account.You_have_a_new_task"
+  assignedTo = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  assignedToType = "user"
+  description = "Task linked to workflow"
+  dueDateOffset = 0
+  notifyAssignee = false
+  priority = "Normal"
+  protected = false
+  status = "Not Started"
+  subject = "You have a new task"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.You_have_a_new_task"
+}

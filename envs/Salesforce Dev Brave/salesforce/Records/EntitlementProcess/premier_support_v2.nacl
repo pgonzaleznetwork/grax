@@ -1,0 +1,55 @@
+salesforce.EntitlementProcess premier_support_v2@su {
+  fullName = "premier support_v2"
+  SObjectType = salesforce.Case
+  active = true
+  businessHours = "Default"
+  description = "Default premier support"
+  entryStartDateField = salesforce.Case.field.CreatedDate
+  exitCriteriaFilterItems = [
+    {
+      field = salesforce.Case.field.IsClosed
+      operation = "equals"
+      value = "true"
+    },
+    {
+      field = salesforce.Case.field.EngineeringReqNumber__c
+      operation = "equals"
+      value = ""
+    },
+    {
+      field = salesforce.Case.field.Origin
+      operation = "equals"
+      value = "Email"
+    },
+  ]
+  isVersionDefault = true
+  milestones = [
+    {
+      milestoneCriteriaFilterItems = {
+        field = salesforce.Case.field.Reason
+        operation = "equals"
+        value = "Installation"
+      }
+      milestoneName = salesforce.MilestoneType.instance.First_touch@s
+      minutesToComplete = 60
+      successActions = {
+        name = salesforce.WorkflowFieldUpdate.instance.Case_Update_case_status@vuu
+        type = "FieldUpdate"
+      }
+      timeTriggers = {
+        actions = {
+          name = salesforce.WorkflowAlert.instance.Case_Alert_case_owner_case_hasn_t_been_touched@vuuuuuuu
+          type = "Alert"
+        }
+        timeLength = -10
+        workflowTimeTriggerUnit = "Minutes"
+      }
+      useCriteriaStartTime = false
+    },
+  ]
+  name = "Premier Support"
+  versionMaster = "5523h000000HO4G"
+  versionNotes = "added email filter"
+  versionNumber = 2
+  _alias = "premier support_v2"
+}

@@ -1,0 +1,38 @@
+type salesforce.SRM_API_Metadata_Client_Setting__mdt {
+  salesforce.Text Additional_Metadata_Types__c {
+    apiName = "SRM_API_Metadata_Client_Setting__mdt.Additional_Metadata_Types__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Additional Metadata Types"
+    length = 250
+    unique = false
+  }
+  salesforce.Text Api_Version__c {
+    apiName = "SRM_API_Metadata_Client_Setting__mdt.Api_Version__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Api Version"
+    length = 10
+    unique = false
+  }
+  salesforce.TextArea Describe_Metadata_Exception__c {
+    apiName = "SRM_API_Metadata_Client_Setting__mdt.Describe_Metadata_Exception__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Describe Metadata Exception"
+  }
+  salesforce.Text Endpoint__c {
+    apiName = "SRM_API_Metadata_Client_Setting__mdt.Endpoint__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Endpoint"
+    length = 250
+    unique = false
+  }
+  salesforce.TextArea List_Metadata_Exception__c {
+    apiName = "SRM_API_Metadata_Client_Setting__mdt.List_Metadata_Exception__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "List Metadata Exception"
+  }
+}

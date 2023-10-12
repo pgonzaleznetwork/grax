@@ -1,0 +1,20 @@
+salesforce.WorkflowAlert Account_Email_Account_Owner@vuu {
+  fullName = "Account.Email_Account_Owner"
+  ccEmails = [
+    "pablo.gonzalez@salto.io",
+  ]
+  description = "Email Account Owner"
+  protected = false
+  recipients = [
+    {
+      recipient = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+      type = "user"
+    },
+  ]
+  senderType = "CurrentUser"
+  template = salesforce.EmailTemplate.instance.unfiled_public_Account_Integration_Disconencted@zcduu
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Email_Account_Owner"
+}

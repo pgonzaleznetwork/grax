@@ -1,0 +1,10 @@
+salesforce.Audience Default2 {
+  fullName = "Default2"
+  audienceName = "Default"
+  container = salesforce.Network.instance.salto_vip_customers@b
+  criteria = {
+  }
+  formulaFilterType = "AllCriteriaMatch"
+  isDefaultAudience = true
+  _alias = "Default2"
+}

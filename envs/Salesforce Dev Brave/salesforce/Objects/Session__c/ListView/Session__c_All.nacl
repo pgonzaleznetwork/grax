@@ -1,0 +1,9 @@
+salesforce.ListView Session__c_All {
+  fullName = "Session__c.All"
+  filterScope = "Everything"
+  label = "All"
+  _parent = [
+    salesforce.Session__c,
+  ]
+  _alias = "All"
+}

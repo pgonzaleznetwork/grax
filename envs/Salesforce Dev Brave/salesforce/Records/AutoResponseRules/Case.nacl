@@ -1,0 +1,40 @@
+salesforce.AutoResponseRules Case {
+  fullName = "Case"
+  autoResponseRule = {
+    fullName = "All"
+    active = true
+    ruleEntry = [
+      {
+        criteriaItems = [
+          {
+            field = salesforce.Case.field.reopenDate__c
+            operation = "equals"
+          },
+        ]
+        notifyCcRecipients = false
+        senderEmail = "pgonzaleznetwork@gmail.com"
+        senderName = "pablo"
+        template = salesforce.EmailTemplate.instance.unfiled_public_CommunityChangePasswordEmailTemplate@zcd
+      },
+      {
+        criteriaItems = [
+          {
+            field = salesforce.Account.field.NetSuite_Id__c
+            operation = "equals"
+            value = "222"
+          },
+          {
+            field = salesforce.Case.field.Origin
+            operation = "equals"
+            value = "Email"
+          },
+        ]
+        notifyCcRecipients = false
+        senderEmail = "pgonzaleznetwork@gmail.com"
+        senderName = "Salto support"
+        template = salesforce.EmailTemplate.instance.unfiled_public_CommunityForgotPasswordEmailTemplate@zcd
+      },
+    ]
+  }
+  _alias = "Case"
+}

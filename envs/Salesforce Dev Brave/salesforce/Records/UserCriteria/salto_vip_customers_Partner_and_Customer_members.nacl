@@ -1,0 +1,10 @@
+salesforce.UserCriteria salto_vip_customers_Partner_and_Customer_members@bbvuuu {
+  fullName = "salto-vip-customers.Partner_and_Customer_members"
+  description = "Member criteria matches customer and partner member"
+  masterLabel = "Customer and Partner Members"
+  userTypes = [
+    "Partner",
+    "Customer",
+  ]
+  _alias = "salto-vip-customers.Partner_and_Customer_members"
+}

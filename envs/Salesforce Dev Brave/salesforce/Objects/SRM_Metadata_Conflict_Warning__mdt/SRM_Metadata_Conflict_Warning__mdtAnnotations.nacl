@@ -1,0 +1,19 @@
+type salesforce.SRM_Metadata_Conflict_Warning__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "SRM_Metadata_Conflict_Warning__mdt"
+  metadataType = "CustomMetadata"
+  label = "SRM Metadata Conflict Warning"
+  pluralLabel = "SRM Metadata Conflict Warnings"
+  _alias = "SRM Metadata Conflict Warning"
+}

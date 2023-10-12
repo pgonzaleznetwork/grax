@@ -1,0 +1,15 @@
+salesforce.ApexClass DependencyTest {
+  apiVersion = 54
+  status = "Active"
+  fullName = "DependencyTest"
+  content = file("salesforce/Records/ApexClass/DependencyTest.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account
+    },
+    {
+      reference = salesforce.Account.field.Users__c
+    },
+  ]
+  _alias = "DependencyTest"
+}

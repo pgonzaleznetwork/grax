@@ -1,0 +1,19 @@
+type salesforce.Trigger_Handler__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "Trigger_Handler__mdt"
+  metadataType = "CustomMetadata"
+  label = "Trigger Handler"
+  pluralLabel = "Trigger Handlers 2"
+  _alias = "Trigger Handler"
+}

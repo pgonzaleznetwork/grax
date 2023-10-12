@@ -1,0 +1,56 @@
+salesforce.Flow Auto_launched_flow {
+  fullName = "Auto_launched_flow"
+  apiVersion = 54
+  environments = "Default"
+  interviewLabel = "Auto launched flow {!$Flow.CurrentDateTime}"
+  label = "Auto launched flow"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "Call_awesome_flow_as_sub_flow"
+    }
+  }
+  status = "Active"
+  subflows = [
+    {
+      name = "Call_awesome_flow_as_sub_flow"
+      label = "Call awesome flow as sub flow"
+      locationX = 176
+      locationY = 158
+      flowName = salesforce.Flow.instance.Awesome_Flow
+    },
+  ]
+  variables = [
+    {
+      name = "Account"
+      dataType = "SObject"
+      isCollection = false
+      isInput = false
+      isOutput = false
+      objectType = salesforce.Account
+    },
+  ]
+  _alias = "Auto launched flow"
+}

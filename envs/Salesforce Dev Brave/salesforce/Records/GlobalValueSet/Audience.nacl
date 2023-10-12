@@ -1,0 +1,23 @@
+salesforce.GlobalValueSet Audience {
+  fullName = "Audience"
+  customValue = [
+    {
+      fullName = "Admin"
+      default = false
+      label = "Admin"
+    },
+    {
+      fullName = "Dev"
+      default = false
+      label = "Dev"
+    },
+    {
+      fullName = "Architect"
+      default = false
+      label = "Architect"
+    },
+  ]
+  masterLabel = "Audience"
+  sorted = false
+  _alias = "Audience"
+}

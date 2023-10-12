@@ -1,0 +1,10 @@
+salesforce.LiveChatSensitiveDataRule Remove_damn {
+  fullName = "Remove_damn"
+  actionType = "Replace"
+  enforceOn = 7
+  isEnabled = true
+  pattern = "damn"
+  priority = 1
+  replacement = "snap!"
+  _alias = "Remove_damn"
+}

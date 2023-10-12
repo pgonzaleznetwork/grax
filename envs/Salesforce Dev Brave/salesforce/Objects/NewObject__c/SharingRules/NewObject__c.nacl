@@ -1,0 +1,7 @@
+salesforce.SharingRules NewObject__c {
+  fullName = "NewObject__c"
+  _parent = [
+    salesforce.NewObject__c,
+  ]
+  _alias = "NewObject__c"
+}

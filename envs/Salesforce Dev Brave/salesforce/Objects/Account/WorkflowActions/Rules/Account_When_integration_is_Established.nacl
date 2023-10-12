@@ -1,0 +1,22 @@
+salesforce.WorkflowRule Account_When_integration_is_Established@vsss {
+  fullName = "Account.When integration is Established"
+  actions = [
+    {
+      name = salesforce.WorkflowFieldUpdate.instance.Account_Update_oracle_Id@vuu
+      type = "FieldUpdate"
+    },
+  ]
+  active = true
+  criteriaItems = [
+    {
+      field = salesforce.Account.field.Integration_Status__c
+      operation = "equals"
+      value = "Connection Established"
+    },
+  ]
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.When integration is Established"
+}

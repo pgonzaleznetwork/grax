@@ -1,0 +1,9 @@
+salesforce.ListView Survey_My_Surveys@us {
+  fullName = "Survey.My Surveys"
+  filterScope = "Mine"
+  label = "My Surveys"
+  _parent = [
+    salesforce.Survey,
+  ]
+  _alias = "My Surveys"
+}

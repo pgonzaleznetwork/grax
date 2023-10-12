@@ -1,0 +1,38 @@
+salesforce.ManagedTopics Salto_Support@s {
+  fullName = "Salto Support"
+  managedTopic = [
+    {
+      fullName = "Salto Support.Content:Astro"
+      managedTopicType = "Content"
+      name = "Astro"
+      parentName = ""
+      position = 1
+      topicDescription = " "
+    },
+    {
+      fullName = "Salto Support.Content:Cody"
+      managedTopicType = "Content"
+      name = "Cody"
+      parentName = ""
+      position = 0
+      topicDescription = " "
+    },
+    {
+      fullName = "Salto Support.Navigational:AnotherNavTopic"
+      managedTopicType = "Navigational"
+      name = "AnotherNavTopic"
+      parentName = ""
+      position = 1
+      topicDescription = " "
+    },
+    {
+      fullName = "Salto Support.Navigational:NavTopic"
+      managedTopicType = "Navigational"
+      name = "NavTopic"
+      parentName = ""
+      position = 0
+      topicDescription = " "
+    },
+  ]
+  _alias = "Salto Support"
+}

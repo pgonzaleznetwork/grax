@@ -1,0 +1,12 @@
+salesforce.ApexClass SRM_MetadataApiProxy {
+  apiVersion = 44
+  status = "Active"
+  fullName = "SRM_MetadataApiProxy"
+  content = file("salesforce/Records/ApexClass/SRM_MetadataApiProxy.cls")
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.SRM_MetadataAPI
+    },
+  ]
+  _alias = "SRM_MetadataApiProxy"
+}

@@ -1,0 +1,131 @@
+salesforce.Flow Flow_using_field_in_Assignment {
+  fullName = "Flow_using_field_in_Assignment"
+  actionCalls = [
+    {
+      description = "Sends email template from support"
+      name = "Send_email"
+      label = "Send email"
+      locationX = 176
+      locationY = 575
+      actionName = salesforce.WorkflowAlert.instance.Case_Send_Support_Email@vuu
+      actionType = "emailAlert"
+      flowTransactionModel = "CurrentTransaction"
+      inputParameters = [
+        {
+          name = "SObjectRowId"
+          value = {
+            elementReference = "$Record.Id"
+          }
+        },
+      ]
+      nameSegment = "Case.Send_Support_Email"
+      versionSegment = 1
+    },
+  ]
+  apiVersion = 51
+  assignments = [
+    {
+      name = "assignment_to_high"
+      label = "assignment to high"
+      locationX = 176
+      locationY = 335
+      assignmentItems = [
+        {
+          assignToReference = "$Record.CustomerPriority__c"
+          operator = "Assign"
+          value = {
+            stringValue = "High"
+          }
+        },
+        {
+          assignToReference = "$Record.AccountNumber"
+          operator = "Assign"
+          value = {
+            elementReference = "$Record.Calculated_Age__c"
+          }
+        },
+        {
+          assignToReference = "$Record.Name"
+          operator = "Assign"
+          value = {
+            stringValue = "Hello Salto!"
+          }
+        },
+      ]
+      connector = {
+        targetReference = "Create_accounts"
+      }
+    },
+  ]
+  environments = "Default"
+  interviewLabel = "Flow using field in Assignment {!$Flow.CurrentDateTime}"
+  label = "Flow using field in Assignment"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  recordCreates = [
+    {
+      name = "Create_accounts"
+      label = "Create accounts"
+      locationX = 176
+      locationY = 455
+      connector = {
+        targetReference = "Send_email"
+      }
+      inputAssignments = [
+        {
+          field = salesforce.Account.field.Active__c
+          value = {
+            booleanValue = true
+          }
+        },
+        {
+          field = salesforce.Account.field.Name
+          value = {
+            stringValue = "New Account"
+          }
+        },
+      ]
+      object = salesforce.Account
+      storeOutputAutomatically = true
+    },
+  ]
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "assignment_to_high"
+    }
+    object = salesforce.Account
+    recordTriggerType = "Create"
+    triggerType = "RecordAfterSave"
+  }
+  status = "Active"
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.Calculated_Age__c
+    },
+    {
+      reference = salesforce.Account.field.CustomerPriority__c
+    },
+  ]
+  _alias = "Flow using field in Assignment"
+}

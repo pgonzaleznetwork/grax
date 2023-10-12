@@ -1,0 +1,19 @@
+type salesforce.Field_referencing__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "Field_referencing__mdt"
+  metadataType = "CustomMetadata"
+  label = "Field referencing"
+  pluralLabel = "Field referencings"
+  _alias = "Field referencing"
+}

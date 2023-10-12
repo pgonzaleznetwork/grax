@@ -1,0 +1,43 @@
+salesforce.CustomApplication standard__LightningSales {
+  formFactors = [
+    "Small",
+    "Medium",
+    "Large",
+  ]
+  isNavAutoTempTabsDisabled = false
+  isNavPersonalizationDisabled = false
+  isNavTabPersistenceDisabled = false
+  label = "Sales"
+  navType = "Standard"
+  profileActionOverrides = [
+    {
+      actionName = "View"
+      content = "Custom_Record_Account_Page"
+      formFactor = "Large"
+      pageOrSobjectType = "Account"
+      recordType = salesforce.RecordType.instance.Account_External_Vendor
+      type = "Flexipage"
+      profile = "Custom: Support Profile"
+    },
+  ]
+  tabs = [
+    "standard-home",
+    "standard-Opportunity",
+    "standard-Lead",
+    salesforce.CustomTab.instance.Boat__c,
+    "standard-Account",
+    "standard-Task",
+    "standard-Contact",
+    "standard-Case",
+    "standard-Forecasting3",
+  ]
+  uiType = "Lightning"
+  utilityBar = "LightningSales_UtilityBar"
+  fullName = "standard__LightningSales"
+  _generated_dependencies = [
+    {
+      reference = salesforce.LightningPage.instance.LightningSales_UtilityBar
+    },
+  ]
+  _alias = "Sales (standard)"
+}

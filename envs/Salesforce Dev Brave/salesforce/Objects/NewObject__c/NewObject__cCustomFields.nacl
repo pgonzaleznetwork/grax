@@ -1,0 +1,21 @@
+type salesforce.NewObject__c {
+  salesforce.Checkbox Field_1__c {
+    apiName = "NewObject__c.Field_1__c"
+    defaultValue = false
+    externalId = false
+    label = "Field 1"
+    trackTrending = false
+    createable = true
+    updateable = true
+    queryable = true
+  }
+  salesforce.Date Field_2__c {
+    apiName = "NewObject__c.Field_2__c"
+    externalId = false
+    label = "Field 2"
+    trackTrending = false
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

@@ -1,0 +1,39 @@
+salesforce.CustomSite Salto_Support {
+  fullName = "Salto_Support"
+  active = true
+  allowGuestPaymentsApi = "false"
+  allowHomePage = false
+  allowStandardAnswersPages = false
+  allowStandardIdeasPages = false
+  allowStandardLookups = false
+  allowStandardPortalPages = true
+  allowStandardSearch = false
+  authorizationRequiredPage = salesforce.ApexPage.instance.CommunitiesLogin
+  bandwidthExceededPage = salesforce.ApexPage.instance.BandwidthExceeded
+  browserXssProtection = true
+  cachePublicVisualforcePagesInProxyServers = true
+  clickjackProtectionLevel = "SameOriginOnly"
+  contentSniffingProtection = true
+  enableAuraRequests = true
+  fileNotFoundPage = salesforce.ApexPage.instance.FileNotFound
+  forgotPasswordPage = salesforce.ApexPage.instance.ForgotPassword
+  genericErrorPage = salesforce.ApexPage.instance.Exception
+  inMaintenancePage = salesforce.ApexPage.instance.InMaintenance
+  indexPage = salesforce.ApexPage.instance.CommunitiesLanding
+  masterLabel = "Salto Support"
+  redirectToCustomDomain = false
+  referrerPolicyOriginWhenCrossOrigin = true
+  selfRegPage = salesforce.ApexPage.instance.CommunitiesSelfReg
+  serverIsDown = "sonar__fieldSpyHowToUseImages"
+  siteAdmin = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  siteGuestRecordDefaultOwner = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  siteType = "ChatterNetwork"
+  subdomain = "saltotest-developer-edition"
+  urlPathPrefix = "saltosupport"
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.SaltoSiteURL
+    },
+  ]
+  _alias = "Salto_Support"
+}

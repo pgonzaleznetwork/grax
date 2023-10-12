@@ -1,0 +1,27 @@
+salesforce.StandardValueSet AccountRating {
+  fullName = "AccountRating"
+  sorted = false
+  standardValue = [
+    {
+      fullName = "Hot"
+      default = false
+      label = "Hot"
+    },
+    {
+      fullName = "Warm"
+      default = false
+      label = "Warm"
+    },
+    {
+      fullName = "Cold"
+      default = false
+      label = "Cold"
+    },
+    {
+      fullName = "Lukewarm"
+      default = false
+      label = "Lukewarm"
+    },
+  ]
+  _alias = "AccountRating"
+}

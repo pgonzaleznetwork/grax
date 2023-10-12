@@ -1,0 +1,28 @@
+salesforce.LightningPage GIFter {
+  flexiPageRegions = [
+    {
+      itemInstances = [
+        {
+          componentInstance = {
+            componentName = "SearchGIPHY"
+            identifier = "SearchGIPHY"
+          }
+        },
+      ]
+      name = "main"
+      type = "Region"
+    },
+  ]
+  masterLabel = "GIFter"
+  template = {
+    name = "flexipage:defaultAppHomeTemplate"
+  }
+  type = "AppPage"
+  fullName = "GIFter"
+  _generated_dependencies = [
+    {
+      reference = salesforce.AuraDefinitionBundle.instance.SearchGIPHY
+    },
+  ]
+  _alias = "GIFter"
+}

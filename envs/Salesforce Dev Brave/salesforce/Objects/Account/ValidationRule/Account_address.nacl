@@ -1,0 +1,10 @@
+salesforce.ValidationRule Account_address {
+  fullName = "Account.address"
+  active = true
+  errorConditionFormula = "NOT(ISBLANK(BillingAddress ))"
+  errorMessage = "Billing address cannot be blank"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.address"
+}

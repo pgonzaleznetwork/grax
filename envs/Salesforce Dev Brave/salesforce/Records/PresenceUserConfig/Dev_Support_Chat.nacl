@@ -1,0 +1,16 @@
+salesforce.PresenceUserConfig Dev_Support_Chat {
+  fullName = "Dev_Support_Chat"
+  assignments = {
+    users = {
+      user = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+    }
+  }
+  capacity = 20
+  enableAutoAccept = false
+  enableDecline = false
+  enableDeclineReason = false
+  enableDisconnectSound = false
+  enableRequestSound = false
+  label = "Dev Support (Chat)"
+  _alias = "Dev Support (Chat)"
+}

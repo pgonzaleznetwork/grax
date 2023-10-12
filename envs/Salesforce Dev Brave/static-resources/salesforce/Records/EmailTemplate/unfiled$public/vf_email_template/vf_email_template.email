@@ -1,0 +1,6 @@
+<messaging:emailTemplate subject="oppty stage vf template" recipientType="Contact" relatedToType="Opportunity">
+<messaging:plainTextEmailBody >
+Congratulations!
+This is your new Visualforce Email Template. {!relatedTo.StageName}
+</messaging:plainTextEmailBody>
+</messaging:emailTemplate>

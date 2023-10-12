@@ -1,0 +1,27 @@
+salesforce.WorkflowRule Account_Workflow_with_criteria@vss {
+  fullName = "Account.Workflow with criteria"
+  actions = [
+    {
+      name = salesforce.WorkflowOutboundMessage.instance.Account_OB_message@vu
+      type = "OutboundMessage"
+    },
+  ]
+  active = false
+  criteriaItems = [
+    {
+      field = salesforce.Account.field.Name
+      operation = "equals"
+      value = "Salto"
+    },
+    {
+      field = salesforce.User.field.AboutMe
+      operation = "notEqual"
+    },
+  ]
+  failedMigrationToolVersion = "238.11.2"
+  triggerType = "onCreateOrTriggeringUpdate"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Workflow with criteria"
+}

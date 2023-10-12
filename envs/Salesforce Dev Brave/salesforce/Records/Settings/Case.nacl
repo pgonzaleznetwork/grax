@@ -1,0 +1,97 @@
+salesforce.CaseSettings {
+  fullName = "Case"
+  caseAssignNotificationTemplate = salesforce.EmailTemplate.instance.unfiled_public_SupportCaseAssignmentNotification@zcd
+  caseAutoProcUser = false
+  caseCreateNotificationTemplate = salesforce.EmailTemplate.instance.unfiled_public_SupportCaseCreatedPhoneInquiries@zcd
+  caseFeedItemSettings = {
+    characterLimit = 400
+    displayFormat = "Default"
+    feedItemType = "EmailMessageEvent"
+  }
+  caseFeedReadUnreadLtng = false
+  caseMergeInLightning = "true"
+  closeCaseThroughStatusChange = false
+  defaultCaseFeedLayoutOn = true
+  defaultCaseOwner = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  defaultCaseOwnerType = "User"
+  defaultCaseUser = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+  emailToCase = {
+    enableE2CAttachmentAsFile = false
+    enableE2CSourceTracking = true
+    enableEmailToCase = true
+    enableHtmlEmail = true
+    enableOnDemandEmailToCase = true
+    enableThreadIDInBody = true
+    enableThreadIDInSubject = true
+    notifyOwnerOnNewCaseEmail = true
+    overEmailLimitAction = "Bounce"
+    preQuoteSignature = true
+    routingAddresses = [
+      {
+        addressType = "EmailToCase"
+        caseOrigin = "Email"
+        caseOwner = salesforce.Queue.instance.Service_Case
+        caseOwnerType = "Queue"
+        casePriority = "Medium"
+        createTask = true
+        emailAddress = "supportagain@salto.io"
+        emailServicesAddress = "supportagain@l-73cs0vw999s31rpsbjaqd3cntsn7a0t3kobfcpfd8le6e521e.3h-5xluweao.na111.case.salesforce.com"
+        isVerified = false
+        routingName = "Default Support Email"
+        saveEmailHeaders = true
+        taskStatus = "Not Started"
+      },
+      {
+        addressType = "EmailToCase"
+        caseOrigin = "Email"
+        caseOwner = salesforce.Queue.instance.High_Priority_Cases
+        caseOwnerType = "Queue"
+        casePriority = "Medium"
+        createTask = false
+        emailAddress = "supporttest@salto.io"
+        emailServicesAddress = "supporttest@35rxaw5xahl4qbrqxly07ztc6ebnes1flmyogu1z6fmbdv33ry.3h-5xluweao.na111.case.salesforce.com"
+        isVerified = false
+        routingName = "support"
+        saveEmailHeaders = false
+      },
+    ]
+    unauthorizedSenderAction = "Discard"
+  }
+  enableCaseFeed = true
+  enableCaseSwarming = "true"
+  enableCollapseEmailThread = true
+  enableDraftEmails = true
+  enableEarlyEscalationRuleTriggers = false
+  enableEmailActionDefaultsHandler = false
+  enableEscalateQfiToCaseInternal = false
+  enableEscalateQfiToCaseNetworks = false
+  enableExtNetworksCaseFeedEnabled = false
+  enableMultiLangSolnSrchCSS = "false"
+  enableMultiLangSolnSrchPKB = "false"
+  enableMultiLangSolution = "false"
+  enableSolutionCategory = "false"
+  enableSolutionInlineCategory = "true"
+  enableSolutionShortSummary = "true"
+  enableSuggestedArticlesApplication = false
+  enableSuggestedArticlesCustomerPortal = false
+  enableSuggestedArticlesPartnerPortal = false
+  enableSuggestedSolutions = true
+  escalateCaseBefore = false
+  keepCaseMergeRecords = true
+  keepRecordTypeOnAssignmentRule = true
+  notifyContactOnCaseComment = false
+  notifyDefaultCaseOwner = false
+  notifyOwnerOnCaseComment = true
+  notifyOwnerOnCaseOwnerChange = false
+  showEmailAttachmentsInCaseAttachmentsRL = true
+  systemUserEmail = "pgonzaleznetwork@gmail.com"
+  useSystemEmailAddress = true
+  useSystemUserAsDefaultCaseUser = false
+  visibleInCssCheckbox = false
+  webToCase = {
+    caseOrigin = "Web"
+    defaultResponseTemplate = "unfiled$public/SupportCaseCreatedWebInquiries"
+    enableWebToCase = true
+  }
+  _alias = "Case"
+}

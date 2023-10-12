@@ -1,0 +1,12 @@
+type salesforce.Event {
+  salesforce.Text Activity_Source__c {
+    apiName = "Event.Activity_Source__c"
+    length = 50
+    label = "Activity Source"
+    createable = true
+    updateable = true
+    unique = false
+    caseSensitive = false
+    queryable = true
+  }
+}

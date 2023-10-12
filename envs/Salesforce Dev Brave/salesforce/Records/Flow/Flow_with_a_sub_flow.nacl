@@ -1,0 +1,48 @@
+salesforce.Flow Flow_with_a_sub_flow {
+  fullName = "Flow_with_a_sub_flow"
+  apiVersion = 54
+  interviewLabel = "Flow with a sub flow {!$Flow.CurrentDateTime}"
+  label = "Flow with a sub flow"
+  processMetadataValues = [
+    {
+      name = "BuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      name = "OriginBuilderType"
+      value = {
+        stringValue = "LightningFlowBuilder"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  start = {
+    locationX = 50
+    locationY = 0
+    connector = {
+      targetReference = "Call_this_other_flow_please"
+    }
+    object = salesforce.Account
+    recordTriggerType = "Create"
+    triggerType = "RecordAfterSave"
+  }
+  status = "Draft"
+  subflows = [
+    {
+      name = "Call_this_other_flow_please"
+      label = "Call this other flow please"
+      locationX = 176
+      locationY = 335
+      flowName = salesforce.Flow.instance.Auto_launched_flow
+    },
+  ]
+  _alias = "Flow with a sub flow"
+}

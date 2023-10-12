@@ -1,0 +1,37 @@
+salesforce.ModerationRule Salto_Support_Replace_banned@svu {
+  fullName = "Salto Support.Replace_banned"
+  action = "Replace"
+  active = false
+  description = "Posts and comments using banned keywords are replaced with asterisks"
+  entitiesAndFields = [
+    {
+      entityName = "FeedComment"
+      fieldName = "RawCommentBody"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "LinkUrl"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "RawBody"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedItem"
+      fieldName = "Title"
+      keywordList = "Salto Support.Banned"
+    },
+    {
+      entityName = "FeedPollChoice"
+      fieldName = "ChoiceBody"
+      keywordList = "Salto Support.Banned"
+    },
+  ]
+  masterLabel = "Replace banned keywords with asterisks"
+  type = "Content"
+  userMessage = "You can't use %BLOCKED_KEYWORD% or other inappropriate words in this community. Review your content and try again."
+  _alias = "Salto Support.Replace_banned"
+}

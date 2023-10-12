@@ -1,0 +1,15 @@
+salesforce.AuraDefinitionBundle ToDo {
+  apiVersion = 54
+  description = "A Lightning Component Bundle"
+  fullName = "ToDo"
+  type = "Component"
+  markup = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDo.cmp")
+  helperContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDoHelper.js")
+  controllerContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDoController.js")
+  documentationContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDo.auradoc")
+  styleContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDo.css")
+  designContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDo.design")
+  rendererContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDoRenderer.js")
+  SVGContent = file("salesforce/Records/AuraDefinitionBundle/ToDo/ToDo.svg")
+  _alias = "ToDo"
+}

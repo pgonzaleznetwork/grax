@@ -1,0 +1,68 @@
+type salesforce.WorkSkillRouting {
+  annotations {
+    serviceid metadataType {
+    }
+    boolean hasMetaFile {
+    }
+    string folderType {
+    }
+    string folderContentType {
+    }
+    string suffix {
+    }
+    string dirName {
+    }
+  }
+  serviceid fullName {
+  }
+  boolean isActive {
+  }
+  string masterLabel {
+  }
+  string relatedEntity {
+    _restriction = {
+      enforce_value = false
+      values = [
+        "BoatType__c",
+        "Case",
+        "Center__c",
+        "CodeBuilder__SessionData__c",
+        "CodeBuilder__Workspace__c",
+        "ContactRequest",
+        "Custom_Object__c",
+        "Lead",
+        "LiveChatTranscript",
+        "MessagingSession",
+        "NewObject__c",
+        "Order",
+        "Parent__c",
+        "SRM_CRM_Sprint__c",
+        "SRM_Connected_Org__c",
+        "SRM_Development_Task__c",
+        "Session__c",
+        "SwarmMember",
+        "Zendesk_Ticket__c",
+        "plusapp__Metadata_Alert__c",
+        "plusapp__Metadata_Junction__c",
+        "plusapp__Metadata_Tags__c",
+        "plusapp__Metadata_User__c",
+        "plusapp__Metadata__c",
+        "sonar__Analysis__c",
+        "sonar__Field_Details__c",
+        "sonar__SObject__c",
+      ]
+    }
+    foreignKeyDomain = [
+      "CustomObject",
+    ]
+  }
+  salesforce.WorkSkillRoutingAttribute workSkillRoutingAttributes {
+  }
+  string internalId {
+    _hidden_value = true
+    localOnly = true
+  }
+  suffix = "workSkillRouting"
+  dirName = "workSkillRoutings"
+  metadataType = "WorkSkillRouting"
+}

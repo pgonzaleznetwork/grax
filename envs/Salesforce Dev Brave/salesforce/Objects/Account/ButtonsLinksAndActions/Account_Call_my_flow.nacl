@@ -1,0 +1,23 @@
+salesforce.WebLink Account_Call_my_flow {
+  fullName = "Account.Call_my_flow"
+  availability = "online"
+  displayType = "button"
+  encodingKey = "UTF-8"
+  hasMenubar = false
+  hasScrollbars = true
+  hasToolbar = false
+  height = 600
+  isResizable = true
+  linkType = "url"
+  masterLabel = "Call my flow"
+  openType = "newWindow"
+  position = "none"
+  protected = false
+  showsLocation = false
+  showsStatus = false
+  url = "https://yourDomain.my.salesforce.com/flow/namespace/Flow_used_everywhere"
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Call_my_flow"
+}

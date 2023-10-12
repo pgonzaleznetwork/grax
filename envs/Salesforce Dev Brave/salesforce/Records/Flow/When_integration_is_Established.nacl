@@ -1,0 +1,62 @@
+salesforce.Flow When_integration_is_Established {
+  fullName = "When_integration_is_Established"
+  apiVersion = 55
+  description = '''
+Migrated from the: When integration is Established workflow rule
+Workflow rule description: "
+'''
+  label = "When integration is Established"
+  migratedFromWorkflowRuleName = "When integration is Established"
+  processMetadataValues = [
+    {
+      name = "CanvasMode"
+      value = {
+        stringValue = "AUTO_LAYOUT_CANVAS"
+      }
+    },
+  ]
+  processType = "AutoLaunchedFlow"
+  recordUpdates = [
+    {
+      name = "mainUpdate"
+      label = "mainUpdate"
+      locationX = 0
+      locationY = 0
+      inputAssignments = [
+        {
+          field = "oracleId__c"
+          value = {
+            stringValue = "1234ORA"
+          }
+        },
+      ]
+      inputReference = "$Record"
+    },
+  ]
+  start = {
+    locationX = 0
+    locationY = 0
+    connector = {
+      targetReference = "mainUpdate"
+    }
+    doesRequireRecordChangedToMeetCriteria = true
+    filterLogic = "and"
+    filters = {
+      field = salesforce.Account.field.Integration_Status__c
+      operator = "EqualTo"
+      value = {
+        stringValue = "Connection Established"
+      }
+    }
+    object = salesforce.Account
+    recordTriggerType = "CreateAndUpdate"
+    triggerType = "RecordBeforeSave"
+  }
+  status = "Draft"
+  _generated_dependencies = [
+    {
+      reference = salesforce.Account.field.oracleId__c
+    },
+  ]
+  _alias = "When integration is Established"
+}

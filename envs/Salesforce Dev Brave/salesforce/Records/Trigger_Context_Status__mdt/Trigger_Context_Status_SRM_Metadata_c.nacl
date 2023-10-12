@@ -1,0 +1,13 @@
+salesforce.Trigger_Context_Status__mdt Trigger_Context_Status_SRM_Metadata_c@uuvuu {
+  label = "SRM_Metadata__c"
+  protected = false
+  fullName = "Trigger_Context_Status.SRM_Metadata_c"
+  Enable_After_Delete__c = true
+  Enable_After_Insert__c = true
+  Enable_After_Undelete__c = true
+  Enable_After_Update__c = true
+  Enable_Before_Delete__c = true
+  Enable_Before_Insert__c = true
+  Enable_Before_Update__c = true
+  _alias = "SRM_Metadata__c"
+}

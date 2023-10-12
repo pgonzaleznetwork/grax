@@ -1,0 +1,19 @@
+type salesforce.Lead_Convert_Mapping__mdt {
+  annotations {
+    serviceid apiName {
+    }
+    serviceid metadataType {
+    }
+    string label {
+    }
+    string pluralLabel {
+    }
+    hidden_string keyPrefix {
+    }
+  }
+  apiName = "Lead_Convert_Mapping__mdt"
+  metadataType = "CustomMetadata"
+  label = "Lead Convert Mapping"
+  pluralLabel = "Lead Convert Mappings"
+  _alias = "Lead Convert Mapping"
+}

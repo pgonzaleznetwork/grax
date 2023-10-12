@@ -1,0 +1,7 @@
+salesforce.ApexClass EasyCrudAndFls {
+  apiVersion = 51
+  status = "Active"
+  fullName = "EasyCrudAndFls"
+  content = file("salesforce/Records/ApexClass/EasyCrudAndFls.cls")
+  _alias = "EasyCrudAndFls"
+}

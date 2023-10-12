@@ -1,0 +1,7 @@
+salesforce.ApexClass SaltoSiteURL {
+  apiVersion = 56
+  status = "Active"
+  fullName = "SaltoSiteURL"
+  content = file("salesforce/Records/ApexClass/SaltoSiteURL.cls")
+  _alias = "SaltoSiteURL"
+}

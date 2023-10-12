@@ -1,0 +1,28 @@
+salesforce.Audience VIP_Customers {
+  fullName = "VIP_Customers"
+  audienceName = "VIP Customers"
+  container = salesforce.Network.instance.Salto_Support@s
+  criteria = {
+    criterion = {
+      criteriaNumber = 1
+      criterionValue = {
+        entityField = "Contact.Account.$Account.CustomerPriority__c"
+        entityType = "User"
+        fieldValue = "New High"
+      }
+      operator = "Equal"
+      type = "FieldBased"
+    }
+  }
+  formulaFilterType = "AllCriteriaMatch"
+  isDefaultAudience = false
+  targets = {
+    target = {
+      groupName = "e5fe239b-df73-430d-8f9b-c9ea53abbcb9$#$ab37f004-bd49-4eb5-9f10-133f4165a026"
+      priority = 1
+      targetType = "ExperienceVariation"
+      targetValue = "Home_Ask_Button_Component"
+    }
+  }
+  _alias = "VIP_Customers"
+}

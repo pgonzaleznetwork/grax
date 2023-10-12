@@ -1,0 +1,30 @@
+salesforce.WorkflowRule Account_Time_trigger_workflow@vss {
+  fullName = "Account.Time trigger workflow"
+  active = false
+  formula = "true"
+  triggerType = "onCreateOrTriggeringUpdate"
+  workflowTimeTriggers = [
+    {
+      actions = [
+        {
+          name = salesforce.WorkflowAlert.instance.Account_account_alert@vu
+          type = "Alert"
+        },
+        {
+          name = salesforce.WorkflowFieldUpdate.instance.Account_update_priority_below@vuu
+          type = "FieldUpdate"
+        },
+        {
+          name = salesforce.WorkflowTask.instance.Account_You_have_a_new_task@vuuuu
+          type = "Task"
+        },
+      ]
+      timeLength = "30"
+      workflowTimeTriggerUnit = "Days"
+    },
+  ]
+  _parent = [
+    salesforce.Account,
+  ]
+  _alias = "Account.Time trigger workflow"
+}

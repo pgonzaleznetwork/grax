@@ -1,0 +1,10 @@
+salesforce.ProfileSessionSetting Sales_Development_Rep_profileSessionSetting1651057344213 {
+  fullName = "Sales_Development_Rep_profileSessionSetting1651057344213"
+  externalCommunityUserIdentityVerif = false
+  forceLogout = false
+  profile = "sales development rep"
+  sessionPersistence = false
+  sessionTimeout = 0
+  sessionTimeoutWarning = false
+  _alias = "Sales_Development_Rep_profileSessionSetting1651057344213"
+}

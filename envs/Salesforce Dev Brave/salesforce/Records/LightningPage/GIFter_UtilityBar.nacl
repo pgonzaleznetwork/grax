@@ -1,0 +1,15 @@
+salesforce.LightningPage GIFter_UtilityBar {
+  flexiPageRegions = [
+    {
+      name = "utilityItems"
+      type = "Region"
+    },
+  ]
+  masterLabel = "GIFter UtilityBar"
+  template = {
+    name = "one:utilityBarTemplateDesktop"
+  }
+  type = "UtilityBar"
+  fullName = "GIFter_UtilityBar"
+  _alias = "GIFter_UtilityBar"
+}

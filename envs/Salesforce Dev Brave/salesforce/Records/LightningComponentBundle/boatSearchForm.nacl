@@ -1,0 +1,28 @@
+salesforce.LightningComponentBundle boatSearchForm {
+  apiVersion = 48
+  isExposed = true
+  targets = {
+    target = [
+      "lightning__AppPage",
+    ]
+  }
+  fullName = "boatSearchForm"
+  lwcResources = {
+    lwcResource = {
+      boatSearchForm_js@v = {
+        source = file("salesforce/Records/LightningComponentBundle/boatSearchForm/boatSearchForm.js")
+        filePath = "lwc/boatSearchForm/boatSearchForm.js"
+      }
+      boatSearchForm_html@v = {
+        source = file("salesforce/Records/LightningComponentBundle/boatSearchForm/boatSearchForm.html")
+        filePath = "lwc/boatSearchForm/boatSearchForm.html"
+      }
+    }
+  }
+  _generated_dependencies = [
+    {
+      reference = salesforce.ApexClass.instance.BoatDataService
+    },
+  ]
+  _alias = "boatSearchForm"
+}

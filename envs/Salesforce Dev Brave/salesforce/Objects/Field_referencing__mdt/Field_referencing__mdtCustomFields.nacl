@@ -1,0 +1,40 @@
+type salesforce.Field_referencing__mdt {
+  salesforce.MetadataRelationship Related_Field__c {
+    apiName = "Field_referencing__mdt.Related_Field__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Related Field"
+    metadataRelationshipControllingField = "Field_referencing__mdt.Related_Object__c"
+    referenceTo = [
+      "FieldDefinition",
+    ]
+    relationshipLabel = "Field_referencings"
+    relationshipName = "Field_referencings"
+    unique = false
+  }
+  salesforce.MetadataRelationship Related_Object__c {
+    apiName = "Field_referencing__mdt.Related_Object__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "Related Object"
+    referenceTo = [
+      "EntityDefinition",
+    ]
+    relationshipLabel = "Field_referencings"
+    relationshipName = "Field_referencings"
+    unique = false
+  }
+  salesforce.MetadataRelationship second_field__c {
+    apiName = "Field_referencing__mdt.second_field__c"
+    externalId = false
+    fieldManageability = "DeveloperControlled"
+    label = "second field"
+    metadataRelationshipControllingField = "Field_referencing__mdt.Related_Object__c"
+    referenceTo = [
+      "FieldDefinition",
+    ]
+    relationshipLabel = "Field_referencings1"
+    relationshipName = "Field_referencings1"
+    unique = false
+  }
+}

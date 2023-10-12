@@ -1,0 +1,25 @@
+salesforce.SharingRules Zendesk_Ticket__c {
+  sharingCriteriaRules = [
+    {
+      fullName = "Share_Zendesk_Tickets"
+      accessLevel = "Read"
+      label = "Share Zendesk Tickets"
+      sharedTo = {
+        group = [
+          salesforce.Group.instance.Zendesk_Managers,
+        ]
+      }
+      criteriaItems = {
+        field = salesforce.Zendesk_Ticket__c.field.Integration_Status__c
+        operation = "equals"
+        value = "Editable"
+      }
+      includeRecordsOwnedByAll = true
+    },
+  ]
+  fullName = "Zendesk_Ticket__c"
+  _parent = [
+    salesforce.Zendesk_Ticket__c,
+  ]
+  _alias = "Zendesk_Ticket__c"
+}

@@ -1,0 +1,13 @@
+type salesforce.Session__c {
+  salesforce.Picklist Target_Audience__c {
+    apiName = "Session__c.Target_Audience__c"
+    externalId = false
+    label = "Target Audience"
+    trackTrending = false
+    valueSetName = salesforce.GlobalValueSet.instance.Audience
+    restricted = true
+    createable = true
+    updateable = true
+    queryable = true
+  }
+}

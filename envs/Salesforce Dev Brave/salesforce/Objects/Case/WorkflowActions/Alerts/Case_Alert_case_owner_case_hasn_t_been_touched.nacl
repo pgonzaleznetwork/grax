@@ -1,0 +1,25 @@
+salesforce.WorkflowAlert Case_Alert_case_owner_case_hasn_t_been_touched@vuuuuuuu {
+  fullName = "Case.Alert_case_owner_case_hasn_t_been_touched"
+  description = "Alert case owner case hasn't been touched"
+  protected = false
+  recipients = [
+    {
+      field = salesforce.Case.field.indicentResponseEmail__c
+      type = "email"
+    },
+    {
+      recipient = salesforce.Group.instance.Zendesk_Managers
+      type = "group"
+    },
+    {
+      recipient = "pgonzaleznetwork@brave-raccoon-mm7crl.com"
+      type = "user"
+    },
+  ]
+  senderType = "CurrentUser"
+  template = salesforce.EmailTemplate.instance.unfiled_public_SupportEscalatedCaseNotification@zcd
+  _parent = [
+    salesforce.Case,
+  ]
+  _alias = "Case.Alert_case_owner_case_hasn_t_been_touched"
+}
