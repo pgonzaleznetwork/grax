@@ -6,7 +6,7 @@ salesforce.WorkflowRule Account_When_integration_is_new@vsss {
       type = "FieldUpdate"
     },
   ]
-  active = true
+  active = false
   formula = "ISPICKVAL(Integration_Status__c,\"New\")"
   triggerType = "onCreateOrTriggeringUpdate"
   _parent = [
