@@ -1,0 +1,5 @@
+workspace {
+  uid = "ee878f8a-de00-4b1b-b43b-7d167f938054"
+  name = "Disable Automation "
+  staleStateThresholdMinutes = undefined
+}

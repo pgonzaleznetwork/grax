@@ -1,0 +1,10 @@
+envs {
+  envs = [
+    {
+      name = "Salesforce Dev Brave"
+      accountToServiceName = {
+        salesforce = "salesforce"
+      }
+    },
+  ]
+}

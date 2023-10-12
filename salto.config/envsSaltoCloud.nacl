@@ -1,0 +1,8 @@
+envs {
+  envsCloud = [
+    {
+      uuid = "9751d4ba-1578-4684-8e08-89d8020b342d"
+      folderName = "Salesforce Dev Brave"
+    },
+  ]
+}
