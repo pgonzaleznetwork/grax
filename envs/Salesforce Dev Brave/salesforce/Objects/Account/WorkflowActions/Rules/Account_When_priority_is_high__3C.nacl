@@ -10,7 +10,7 @@ salesforce.WorkflowRule Account_When_priority_is_high__3C@vssssp {
       type = "FieldUpdate"
     },
   ]
-  active = true
+  active = false
   formula = "NOT(ISBLANK(TEXT(CustomerPriority__c)))"
   triggerType = "onCreateOrTriggeringUpdate"
   _parent = [

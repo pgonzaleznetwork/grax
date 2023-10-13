@@ -1,6 +1,6 @@
 salesforce.ValidationRule Account_Tamir_validation {
   fullName = "Account.Tamir_validation"
-  active = true
+  active = false
   errorConditionFormula = "UPPER(Name) = \"TAMIR\""
   errorMessage = "Tamir is not a good name!"
   _parent = [

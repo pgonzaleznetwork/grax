@@ -1,6 +1,6 @@
 salesforce.ValidationRule Account_Only_admin_can_edit_account_number {
   fullName = "Account.Only_admin_can_edit_account_number"
-  active = true
+  active = false
   errorConditionFormula = "$User.Id = '0053h000002JF4c' && ISCHANGED( AccountNumber )"
   errorMessage = "Only the admin can edit the account number"
   _parent = [
