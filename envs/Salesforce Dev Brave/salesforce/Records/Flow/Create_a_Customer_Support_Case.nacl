@@ -534,15 +534,17 @@ salesforce.Flow Create_a_Customer_Support_Case {
   stages = [
     {
       name = "Case_Details_Stage"
-      isactive = false
+      
       label = "Get Case Details"
       stageOrder = 20
+      isActive = true
     },
     {
       name = "Contact_Details_Stage"
-      isactive = false
+      
       label = "Confirm Customer Details"
       stageOrder = 10
+      isActive = true
     },
   ]
   start = {

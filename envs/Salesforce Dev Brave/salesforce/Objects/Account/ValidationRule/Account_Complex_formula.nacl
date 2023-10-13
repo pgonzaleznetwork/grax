@@ -1,6 +1,6 @@
 salesforce.ValidationRule Account_Complex_formula {
   fullName = "Account.Complex_formula"
-  active = false
+  active = true
   errorConditionFormula = '''
 IF(Owner.Contact.CreatedBy.Profile.Id = "03d3h000000khEQ",TRUE,false)
 
