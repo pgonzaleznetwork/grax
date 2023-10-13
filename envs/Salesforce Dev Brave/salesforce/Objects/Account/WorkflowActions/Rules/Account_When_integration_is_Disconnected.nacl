@@ -6,7 +6,7 @@ salesforce.WorkflowRule Account_When_integration_is_Disconnected@vsss {
       type = "Alert"
     },
   ]
-  active = false
+  active = true
   criteriaItems = [
     {
       field = salesforce.Account.field.Integration_Status__c
