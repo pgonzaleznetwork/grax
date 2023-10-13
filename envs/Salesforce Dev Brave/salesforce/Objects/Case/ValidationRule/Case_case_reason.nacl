@@ -1,6 +1,6 @@
 salesforce.ValidationRule Case_case_reason {
   fullName = "Case.case_reason"
-  active = true
+  active = false
   errorConditionFormula = "ISPICKVAL( Reason ,\"exit\")"
   errorMessage = "Reason cannot be \"Exit\" as this has been deprecated."
   _parent = [
